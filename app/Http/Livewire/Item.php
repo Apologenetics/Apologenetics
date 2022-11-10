@@ -23,7 +23,7 @@ class Item extends Component
     public ?string $padding = null;
 
     protected $listeners = [
-        'updateItem' => 'update'
+        'updateItem' => 'update',
     ];
 
     public function mount()

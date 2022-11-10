@@ -3,10 +3,10 @@
 namespace App\Models;
 
 use App\Contracts\Vote\Votable;
-use App\Traits\HasNuggetRelation;
 use App\Traits\HasUrlAttributes;
-use App\Traits\HasVotableRelation;
+use App\Traits\HasNuggetRelation;
 use Laravel\Sanctum\HasApiTokens;
+use App\Traits\HasVotableRelation;
 use App\Contracts\Comment\Commentable;
 use Illuminate\Database\Query\Builder;
 use Laravel\Jetstream\HasProfilePhoto;

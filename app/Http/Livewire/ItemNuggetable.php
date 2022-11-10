@@ -2,11 +2,11 @@
 
 namespace App\Http\Livewire;
 
-use App\Http\Livewire\Nuggets\NuggetableModal;
 use App\Models\Nugget;
 use Livewire\Component;
 use App\Traits\MapsModels;
 use Illuminate\Database\Eloquent\Model;
+use App\Http\Livewire\Nuggets\NuggetableModal;
 
 class ItemNuggetable extends Component
 {
@@ -40,9 +40,9 @@ class ItemNuggetable extends Component
             'itemClass' => $this->item::class,
             'nuggetTypeId' => $this->nuggetableTypeId,
             'nuggetIds' => array_map(
-                fn($n) => $n['id'],
+                fn ($n) => $n['id'],
                 $this->nuggetableArray
-            )
+            ),
         ]);
     }
 

@@ -2,10 +2,9 @@
 
 namespace App\Http\Livewire;
 
-use App\Contracts\Approvable;
-use Illuminate\Support\Arr;
 use Livewire\Component;
 use App\Traits\MapsModels;
+use App\Contracts\Approvable;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 
@@ -28,11 +27,11 @@ class ListItems extends Component
     public ?string $button = null;
 
     public array $itemState = [
-        'updated' => []
+        'updated' => [],
     ];
 
     protected $listeners = [
-        'update' => 'update'
+        'update' => 'update',
     ];
 
     public function mount()

@@ -2,12 +2,12 @@
 
 namespace App\Http\Livewire\Nuggets;
 
-use App\Actions\Nuggets\CreateNugget;
 use App\Models\Nugget;
 use App\Traits\MapsModels;
+use LivewireUI\Modal\ModalComponent;
+use App\Actions\Nuggets\CreateNugget;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Validation\ValidationException;
-use LivewireUI\Modal\ModalComponent;
 
 class NuggetableModal extends ModalComponent
 {
@@ -31,15 +31,15 @@ class NuggetableModal extends ModalComponent
     {
         $this->item = call_user_func([$this->itemClass, 'query'])
             ->with([
-                'createdBy' => fn($q) => $q->select([
+                'createdBy' => fn ($q) => $q->select([
                     'first_name',
                     'last_name',
                     'id',
                     'faith_id',
-                    'profile_photo_path'
+                    'profile_photo_path',
                 ]),
-                'createdBy.faith.religion' => fn($q) => $q->select(['id', 'name']),
-                'createdBy.faith.denomination' => fn($q) => $q->select(['id', 'name', 'religion_id'])
+                'createdBy.faith.religion' => fn ($q) => $q->select(['id', 'name']),
+                'createdBy.faith.denomination' => fn ($q) => $q->select(['id', 'name', 'religion_id']),
             ])
             ->find($this->itemId);
 
@@ -59,7 +59,7 @@ class NuggetableModal extends ModalComponent
     public function post(CreateNugget $createNugget)
     {
         $createNugget(array_merge($this->state, [
-            'nugget_type_id' => $this->nuggetTypeId
+            'nugget_type_id' => $this->nuggetTypeId,
         ]));
     }
 

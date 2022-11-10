@@ -2,13 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Contracts\Nuggets\CreatesNugget;
 use App\Models\User;
 use App\Models\Nugget;
-use App\Models\Religion;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
 class NuggetController extends Controller

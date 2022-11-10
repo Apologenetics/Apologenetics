@@ -25,7 +25,7 @@ class ShowDoctrines extends Component
     ];
 
     protected $listeners = [
-        'update' => 'update'
+        'update' => 'update',
     ];
 
     /**

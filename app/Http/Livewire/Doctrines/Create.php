@@ -4,11 +4,11 @@ namespace App\Http\Livewire\Doctrines;
 
 use App\Models\Religion;
 use App\Models\Denomination;
+use LivewireUI\Modal\ModalComponent;
 use App\Traits\ConvertEmptyArrayStrings;
 use App\Contracts\Doctrine\CreatesDoctrine;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use LivewireUI\Modal\ModalComponent;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Create extends ModalComponent

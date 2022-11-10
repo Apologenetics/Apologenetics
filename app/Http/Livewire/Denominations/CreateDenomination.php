@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Denominations;
 
-use App\Http\Livewire\ListItems;
 use App\Models\Religion;
+use App\Http\Livewire\ListItems;
 use LivewireUI\Modal\ModalComponent;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Validation\ValidationException;

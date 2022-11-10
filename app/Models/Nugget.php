@@ -3,10 +3,10 @@
 namespace App\Models;
 
 use App\Traits\HasComments;
-use App\Traits\HasVotableRelation;
 use Illuminate\Support\Arr;
 use App\Contracts\Vote\Votable;
 use App\Traits\HasUrlAttributes;
+use App\Traits\HasVotableRelation;
 use App\Contracts\Comment\Commentable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;

@@ -26,7 +26,7 @@ class DenominationController extends Controller
                         'religion',
                     ],
                 ],
-                'nuggets'
+                'nuggets',
             ],
         ]);
 
