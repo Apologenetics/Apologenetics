@@ -8,6 +8,7 @@ use App\Contracts\Vote\Votable;
 use App\Traits\HasNuggetRelation;
 use App\Traits\HasUrlAttributes;
 use App\Contracts\Comment\Commentable;
+use App\Traits\HasVotableRelation;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -20,7 +21,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class Religion extends Model implements Votable, Commentable, Approvable
 {
-    use HasFactory, HasComments, HasUrlAttributes, HasNuggetRelation;
+    use HasFactory, HasComments, HasUrlAttributes, HasNuggetRelation, HasVotableRelation;
 
     protected $guarded = [];
 
@@ -83,11 +84,6 @@ class Religion extends Model implements Votable, Commentable, Approvable
     public function follows(): MorphMany
     {
         return $this->morphMany(Follow::class, 'followable');
-    }
-
-    public function votes(): MorphMany
-    {
-        return $this->morphMany(Vote::class, 'votable');
     }
 
     public function posts(): MorphToMany

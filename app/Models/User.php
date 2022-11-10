@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Contracts\Vote\Votable;
 use App\Traits\HasNuggetRelation;
 use App\Traits\HasUrlAttributes;
+use App\Traits\HasVotableRelation;
 use Laravel\Sanctum\HasApiTokens;
 use App\Contracts\Comment\Commentable;
 use Illuminate\Database\Query\Builder;
@@ -33,6 +34,7 @@ class User extends Authenticatable implements Votable, Commentable
     use HasRolesAndAbilities;
     use HasUrlAttributes;
     use HasNuggetRelation;
+    use HasVotableRelation;
 
     protected $guarded = false;
 
@@ -188,11 +190,6 @@ class User extends Authenticatable implements Votable, Commentable
     public function following(): MorphMany
     {
         return $this->morphMany(Follow::class, 'followable');
-    }
-
-    public function votes(): MorphMany
-    {
-        return $this->morphMany(Vote::class, 'votable');
     }
 
     // Inverse Relationships

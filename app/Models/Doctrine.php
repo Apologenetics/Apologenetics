@@ -7,6 +7,7 @@ use App\Contracts\Vote\Votable;
 use App\Traits\HasUrlAttributes;
 use App\Traits\HasNuggetRelation;
 use App\Contracts\Comment\Commentable;
+use App\Traits\HasVotableRelation;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -17,7 +18,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class Doctrine extends Model implements Votable, Commentable
 {
-    use HasFactory, HasComments, HasUrlAttributes, HasNuggetRelation;
+    use HasFactory, HasComments, HasUrlAttributes, HasNuggetRelation, HasVotableRelation;
 
     protected $guarded = ['id'];
 
@@ -69,11 +70,6 @@ class Doctrine extends Model implements Votable, Commentable
     public function tags(): MorphToMany
     {
         return $this->morphToMany(Tag::class, 'taggable');
-    }
-
-    public function votes(): MorphMany
-    {
-        return $this->morphMany(Vote::class, 'votable');
     }
 
     public function follows(): MorphMany

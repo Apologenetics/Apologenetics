@@ -8,7 +8,7 @@ use App\Models\Comment;
 
 trait MapsModels
 {
-    public function isClassName(string $name)
+    public function isClassName(string $name): bool
     {
         return str_contains($name, 'App\\Models\\');
     }

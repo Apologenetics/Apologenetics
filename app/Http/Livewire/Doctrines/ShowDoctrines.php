@@ -65,6 +65,8 @@ class ShowDoctrines extends Component
     {
         $this->entity->refresh();
 
+        $this->entity->load('allDenominations.doctrine');
+
         $this->checkChildren();
 
         $this->emit('closeModal');

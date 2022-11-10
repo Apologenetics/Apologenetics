@@ -40,9 +40,14 @@ class ItemVotes extends Component
                     ->get() :
                 $votable->votes()->get();
 
-            $this->type = $votable['model_type'];
-
-            $this->modelId = $votable['model_id'];
+            if ($votable instanceof Votable) {
+                $this->type = $votable->modelType();
+                $this->modelId = $votable->getId();
+            } else {
+                // TODO: Throw error if values are not found?
+                $this->type = $votable['model_type'];
+                $this->modelId = $votable['model_id'];
+            }
         }
 
         $this->voteAmount = $votes->sum('amount');
@@ -74,8 +79,7 @@ class ItemVotes extends Component
             ->first();
 
         if (is_null($vote)) {
-            /** @var Vote $vote */
-            $vote = Vote::query()
+            Vote::query()
                 ->create([
                     'amount' => 1,
                     'user_id' => auth()->id(),

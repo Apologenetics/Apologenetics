@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\HasComments;
+use App\Traits\HasVotableRelation;
 use Illuminate\Support\Arr;
 use App\Contracts\Vote\Votable;
 use App\Traits\HasUrlAttributes;
@@ -18,7 +19,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class Nugget extends Model implements Votable, Commentable
 {
-    use HasFactory, HasComments, HasUrlAttributes;
+    use HasFactory, HasComments, HasUrlAttributes, HasVotableRelation;
 
     public const NUGGET_TYPE_REFUTE = 0;
 
@@ -282,11 +283,6 @@ class Nugget extends Model implements Votable, Commentable
     public function doctrines(): MorphToMany
     {
         return $this->morphedByMany(Doctrine::class, 'nuggetable');
-    }
-
-    public function votes(): MorphMany
-    {
-        return $this->morphMany(Vote::class, 'votable');
     }
 
     public function follows(): MorphMany
