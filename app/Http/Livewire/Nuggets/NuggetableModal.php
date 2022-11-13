@@ -23,32 +23,40 @@ class NuggetableModal extends ModalComponent
 
     public array $nuggetIds;
 
-    public int $nuggetTypeId;
+    public int $nuggetTypeId = 0;
+
+    public array $filter = [];
 
     public array $state = [];
 
     public function mount()
     {
-        $this->item = call_user_func([$this->itemClass, 'query'])
-            ->with([
-                'createdBy' => fn ($q) => $q->select([
-                    'first_name',
-                    'last_name',
-                    'id',
-                    'faith_id',
-                    'profile_photo_path',
-                ]),
-                'createdBy.faith.religion' => fn ($q) => $q->select(['id', 'name']),
-                'createdBy.faith.denomination' => fn ($q) => $q->select(['id', 'name', 'religion_id']),
-            ])
-            ->find($this->itemId);
+        if (! isset($this->item)) {
+            $this->item = call_user_func([$this->itemClass, 'query'])
+                ->with([
+                    'createdBy' => fn ($q) => $q->select([
+                        'first_name',
+                        'last_name',
+                        'id',
+                        'faith_id',
+                        'profile_photo_path',
+                    ]),
+                    'createdBy.faith.religion' => fn ($q) => $q->select(['id', 'name']),
+                    'createdBy.faith.denomination' => fn ($q) => $q->select(['id', 'name', 'religion_id']),
+                ])
+                ->find($this->itemId);
+        }
 
-        $this->item->setRelation(
-            'nuggets',
-            Nugget::query()
-                ->whereIn('id', $this->nuggetIds)
-                ->get()
-        );
+        if (! $this->item->relationLoaded('nuggets')) {
+            $this->item->setRelation(
+                'nuggets',
+                Nugget::query()
+                    ->whereIn('id', $this->nuggetIds)
+                    ->get()
+            );
+        }
+
+        $this->itemClass ??= $this->item::class;
 
         $this->itemType = $this->mapToCodeName($this->itemClass);
     }
@@ -61,6 +69,11 @@ class NuggetableModal extends ModalComponent
         $createNugget(array_merge($this->state, [
             'nugget_type_id' => $this->nuggetTypeId,
         ]));
+    }
+
+    public function filter(string $type)
+    {
+
     }
 
     public function render()

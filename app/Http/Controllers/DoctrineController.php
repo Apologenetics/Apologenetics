@@ -89,6 +89,14 @@ class DoctrineController extends Controller
 
     public function show(Doctrine $doctrine): View
     {
+        $doctrine->load([
+            'nuggets' => [
+                'createdBy',
+                'createdBy.faith.religion',
+                'createdBy.faith.denomination'
+            ]
+        ]);
+
         return view('doctrines.show', [
             'doctrine' => $doctrine,
         ]);
