@@ -14,10 +14,11 @@ class UserController extends Controller
         $user = User::query()
             ->with([]);
 
-        $identifier = is_numeric($username)
-            ? 'id' : 'username';
-
-        $user = $user->where($identifier, $username)
+        $user = $user->where(
+            is_numeric($username)
+                ? 'id' : 'username',
+            $username
+        )
             ->first();
 
         return view('users.show', [

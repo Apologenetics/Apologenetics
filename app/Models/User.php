@@ -69,6 +69,7 @@ class User extends Authenticatable implements Votable, Commentable
      */
     protected $appends = [
         'profile_photo_url',
+        'profile_url'
     ];
 
     // Attributes

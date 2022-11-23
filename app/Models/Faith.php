@@ -19,6 +19,10 @@ class Faith extends Model
         'end_of_faith' => 'datetime:Y-m-d',
     ];
 
+    protected $appends = [
+        'title'
+    ];
+
     // Attributes
 
     public function title(): Attribute
