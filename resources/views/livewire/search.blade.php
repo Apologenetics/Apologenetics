@@ -1,21 +1,20 @@
-<div class="w-full flex flex-col items-center max-w-3xl relative">
+<div class="w-full flex flex-col items-center max-w-6xl relative">
     <!-- Search Bar -->
     <div class="w-full flex flex-row items-center">
         <!-- Search Icon and Text Field -->
-        <div class="flex flex-row space-x-2 items-center bg-slate-200 rounded-tl-lg rounded-bl-lg w-11/12 py-2 pl-4">
-            <!-- Search Icon -->
-            <svg class="h-6 w-6 text-sky-300" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M22 22L20 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+        <div class="flex flex-row space-x-2 items-center bg-white rounded-lg w-11/12 py-2 pr-4 ring-1 ring-sky-200 shadow-lg">
             <!-- Search Field -->
             <input type="text" wire:model.debounce.500ms="state.search"
                 placeholder="Search for tags, doctrines, religions, denominations, etc..."
-                class="text-gray-600 placeholder-gray-400 bg-slate-200 border-none flex-shrink-1 w-full focus:border-transparent focus:ring-0 focus:placeholder-transparent">
+                class="text-gray-600 placeholder-gray-400 text-md bg-white border-none flex-shrink-1 w-full focus:border-transparent focus:ring-0 focus:placeholder-transparent">
+            <!-- Search Icon -->
+            <button>
+                <svg class="h-6 w-6 text-sky-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 22L20 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
         </div>
-        <button wire:click="search" class="px-2 py-4 h-full bg-sky-500 text-white rounded-tr-lg rounded-br-lg">
-            <span class="text-sm p-2">Search</span>
-        </button>
     </div>
     @if (! empty($state['search']))
         <!-- Results -->

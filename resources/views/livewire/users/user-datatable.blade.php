@@ -4,7 +4,7 @@
         <div class="flex flex-col space-y-4 w-full h-full">
             <!-- Header -->
             <div class="flex flex-shrink-0 px-4 text-gray-500">
-                <div class="flex items-center flex-grow w-0 py-4 text-xs font-semibold text-center justify-center bg-gray-300 rounded-l-xl">
+                <div class="flex items-center flex-grow w-0 py-4 text-xs font-semibold text-start pl-12 bg-gray-300 rounded-l-xl">
                     <span>User</span>
                 </div>
                 <div class="flex items-center flex-grow w-0 py-4 text-xs font-semibold text-center justify-center bg-gray-300">

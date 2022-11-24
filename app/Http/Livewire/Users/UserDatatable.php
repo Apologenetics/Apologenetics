@@ -13,6 +13,8 @@ class UserDatatable extends Component
 
     public int $limit = 10;
 
+    public int $offset = 0;
+
     public function mount(array $userIds = [])
     {
         $with = [
@@ -26,12 +28,14 @@ class UserDatatable extends Component
                 ->with($with)
                 ->whereIn('id', $userIds)
                 ->take($this->limit)
+                ->offset($this->offset)
                 ->get()
                 ->toArray();
         } else {
             $this->users ??= User::query()
                 ->with($with)
                 ->take($this->limit)
+                ->offset($this->offset)
                 ->get()
                 ->toArray();
         }
