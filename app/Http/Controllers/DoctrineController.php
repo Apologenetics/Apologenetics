@@ -38,7 +38,7 @@ class DoctrineController extends Controller
     {
         $religions = Religion::query()
             ->scopes(['active'])
-            ->with(['doctrines', 'denominations.doctrines'])
+            ->with(['doctrines.createdBy.faith', 'denominations.doctrines.createdBy.faith'])
             ->whereHas('doctrines')
             ->orWhereHas('denominations.doctrines')
             ->get();

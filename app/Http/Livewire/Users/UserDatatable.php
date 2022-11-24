@@ -4,10 +4,11 @@ namespace App\Http\Livewire\Users;
 
 use App\Models\User;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class UserDatatable extends Component
 {
-    public ?array $users = null;
+    use WithPagination;
 
     public ?string $sortBy = null;
 
@@ -15,7 +16,7 @@ class UserDatatable extends Component
 
     public int $offset = 0;
 
-    public function mount(array $userIds = [])
+    public function render()
     {
         $with = [
             'faith',
@@ -23,26 +24,23 @@ class UserDatatable extends Component
             'faith.religion'
         ];
 
+        $users = null;
+
         if (empty($users) && ! empty($userIds)) {
-            $this->users = User::query()
+            $users = User::query()
                 ->with($with)
                 ->whereIn('id', $userIds)
-                ->take($this->limit)
                 ->offset($this->offset)
-                ->get()
-                ->toArray();
+                ->simplePaginate($this->limit);
         } else {
-            $this->users ??= User::query()
+            $users ??= User::query()
                 ->with($with)
-                ->take($this->limit)
                 ->offset($this->offset)
-                ->get()
-                ->toArray();
+                ->simplePaginate($this->limit);
         }
-    }
 
-    public function render()
-    {
-        return view('livewire.users.user-datatable');
+        return view('livewire.users.user-datatable', [
+            'users' => $users
+        ]);
     }
 }

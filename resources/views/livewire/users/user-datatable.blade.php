@@ -56,6 +56,9 @@
                     </div>
                 </div>
             @endif
+            <div class="w-full px-4">
+                {!! $users->links() !!}
+            </div>
         </div>
     </div>
 </div>

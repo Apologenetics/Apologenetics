@@ -7,15 +7,15 @@
         @if (! empty($item->createdBy->profile_photo_path))
             <img src="{{ $item->createdBy->profile_photo_url }}"
                  class="w-16 h-16 rounded-full shadow-xl"
-                 alt="{{ $item->createdBy->name }}">
+                 alt="{{ $item->createdBy->username }}">
         @else
             <div class="w-16 h-16 rounded-full bg-gray-500"></div>
         @endif
         <!-- Post Author Information -->
         <div class="flex flex-col">
-            <a href="{{ $item->profile_url }}"
+            <a href="{{ $item->createdBy->profile_url }}"
                class="text-lg font-semibold text-sky-800 hover:underline hover:text-sky-600">
-                <span>{{ $item->createdBy->name }}</span>
+                <span>{{ $item->createdBy->username }}</span>
             </a>
             <p class="text-md text-slate-500">
                 <span>{{ $item->createdBy->faith_title }}</span>

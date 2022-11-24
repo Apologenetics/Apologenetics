@@ -35,8 +35,7 @@ class NuggetableModal extends ModalComponent
             $this->item = call_user_func([$this->itemClass, 'query'])
                 ->with([
                     'createdBy' => fn ($q) => $q->select([
-                        'first_name',
-                        'last_name',
+                        'username',
                         'id',
                         'faith_id',
                         'profile_photo_path',

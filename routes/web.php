@@ -37,8 +37,6 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/religions/{religion}/denominations/edit/{denomination}', 'editDenomination')->name('religions.edit-denomination');
     });
 
-    Auth::user();
-
     // Denomination
     Route::controller(Controllers\DenominationController::class)->group(function () {
         Route::get('/denominations/create', 'createDenomination')->name('denominations.create');
