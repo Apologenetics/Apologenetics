@@ -76,7 +76,7 @@
                     }
                 }">
                 <!-- Main Sidebar Content -->
-                <div class="flex flex-col">
+                <div class="flex flex-col w-full">
                     <div class="w-full">
                         <div class="rounded-full w-10 h-10 bg-gray-500"></div>
                     </div>

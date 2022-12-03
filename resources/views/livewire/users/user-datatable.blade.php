@@ -18,7 +18,7 @@
                 </div>
             </div>
             <!-- Body -->
-            <div class="overflow-auto mx-4 bg-white rounded-xl overflow-y-auto p-2 space-y-6">
+            <div class="overflow-auto mx-4 bg-white rounded-xl overflow-y-auto p-2 space-y-6 shadow-lg">
                 @forelse ($users as $user)
                     <div class="flex flex-shrink-0">
                         <div class="flex items-center flex-grow w-0 py-2 text-sm text-gray-500 px-4">
