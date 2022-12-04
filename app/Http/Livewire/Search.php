@@ -71,6 +71,13 @@ class Search extends Component
         }
     }
 
+    public function redirectSearch()
+    {
+        if (! empty($this->state['search'])) {
+            $this->redirectRoute('search.results', ['q' => urlencode($this->state['search'])]);
+        }
+    }
+
     public function render()
     {
         return view('livewire.search');

@@ -4,7 +4,9 @@
         <!-- Search Icon and Text Field -->
         <div class="flex flex-row space-x-2 items-center bg-white rounded-lg w-11/12 py-2 pr-4 ring-1 ring-sky-200 shadow-lg">
             <!-- Search Field -->
-            <input type="text" wire:model.debounce.500ms="state.search"
+            <input type="text"
+                wire:model.debounce.500ms="state.search"
+                wire:keyup.enter="redirectSearch"
                 placeholder="Search for tags, doctrines, religions, denominations, etc..."
                 class="text-gray-600 placeholder-gray-400 text-md bg-white border-none flex-shrink-1 w-full focus:border-transparent focus:ring-0 focus:placeholder-transparent">
             <!-- Search Icon -->
