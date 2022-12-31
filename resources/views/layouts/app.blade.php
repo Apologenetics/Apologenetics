@@ -159,6 +159,13 @@
                              class="w-8 h-8 rounded-full hover:cursor-pointer" x-on:click="openMenu" />
                         <div class="icon-name flex flex-col space-y-2" style="display: none;">
                             <span class="text-md font-semibold">{{ auth()->user()->username }}</span>
+                            <div class="flex flex-row space-x-4 items-center">
+                                <form action="{{ route('logout') }}" method="post">
+                                    @csrf
+                                    <input type="submit" class="text-sm text-gray-400 hover:underline cursor-pointer" value="Logout" />
+                                </form>
+                                <a href="{{ route('users.show', ['username' => auth()->user()->username]) }}" class="text-sm text-gray-400 hover:underline">Profile</a>
+                            </div>
                         </div>
                     </div>
                 </div>
