@@ -24,8 +24,9 @@
         <!-- Columns -->
         <div class="flex flex-row space-x-6 w-full">
             <!-- Column 1 -->
-            <div class="w-3/4 flex flex-col space-y-6">
-                <div class="flex flex-col bg-white rounded-2xl shadow-xl p-8 h-64"></div>
+            <div class="w-3/4 h-fit">
+                <!-- Results Categories -->
+                <livewire:search.results :query :type />
             </div>
             <!-- Column 2 -->
             <div class="w-1/4 flex flex-col space-y-6">
