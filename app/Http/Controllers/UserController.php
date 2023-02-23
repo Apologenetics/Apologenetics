@@ -29,7 +29,8 @@ class UserController extends Controller
     public function users()
     {
         return view('users.index', [
-            'users' => User::with(['faith.religion', 'faith.denomination'])->simplePaginate(10),
+            'users' => User::with(['faith.religion', 'faith.denomination'])
+                ->simplePaginate(10),
         ]);
     }
 
