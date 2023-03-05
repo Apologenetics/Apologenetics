@@ -34,14 +34,9 @@ class NuggetableModal extends ModalComponent
         if (! isset($this->item)) {
             $this->item = call_user_func([$this->itemClass, 'query'])
                 ->with([
-                    'createdBy' => fn ($q) => $q->select([
-                        'username',
-                        'id',
-                        'faith_id',
-                        'profile_photo_path',
-                    ]),
-                    'createdBy.faith.religion' => fn ($q) => $q->select(['id', 'name']),
-                    'createdBy.faith.denomination' => fn ($q) => $q->select(['id', 'name', 'religion_id']),
+                    'createdBy:id,username,faith_id,profile_photo_path,first_name,last_name',
+                    'createdBy.faith.religion:id,name',
+                    'createdBy.faith.denomination:id,name,religion_id',
                 ])
                 ->find($this->itemId);
         }
