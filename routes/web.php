@@ -26,7 +26,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::controller(Controllers\UserController::class)->group(function () {
         Route::get('/users', 'users')->name('users.index');
         Route::get('/users/edit/{user?}/{faith_id?}', 'edit')->name('users.edit');
-        Route::get('/users/{username?}', 'show')->name('users.show');
+        Route::get('/users/profile/{username?}', 'show')->name('users.show');
     });
 
     // Religion
@@ -54,5 +54,6 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     // Nuggets
     Route::controller(Controllers\NuggetController::class)->group(function () {
         Route::get('/nuggets', 'list')->name('nuggets.list');
+        Route::get('/nuggets/create', 'create')->name('nuggets.create');
     });
 });

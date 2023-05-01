@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Nugget;
+use App\Models\Religion;
 use Illuminate\View\View;
 
 class NuggetController extends Controller
@@ -24,6 +25,20 @@ class NuggetController extends Controller
         return view('nuggets.user', [
             'user' => $user->withoutRelations(),
             'nuggets' => $user->nuggets ?? [],
+        ]);
+    }
+
+    public function create(): View
+    {
+        $religions = Religion::query()
+            ->select(['id', 'name'])
+            ->where('approved', true)
+            ->with(['denominations:id,name'])
+            ->get();
+
+        return view('nuggets.create', [
+            'nuggetTypes' => Nugget::NUGGET_TYPES,
+            'religions' => $religions
         ]);
     }
 }

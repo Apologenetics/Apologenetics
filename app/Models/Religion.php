@@ -98,6 +98,8 @@ class Religion extends Model implements Votable, Commentable, Approvable
         return $this->belongsTo($this::class, 'id', 'parent_id');
     }
 
+    // Query actions
+    
     public function approve()
     {
         $this->newQuery()
