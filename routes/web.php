@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/religions', 'list')->name('religions.list');
         Route::get('/religions/create', 'create')->name('religions.create');
         Route::get('/religions/{religion}', 'show')->name('religions.show');
+        Route::get('/religions/{religion}/addNugget', 'addNugget')->name('religions.addNugget');
         Route::get('/religions/{religion}/denominations/create', 'createDenomination')->name('religions.create-denomination');
         Route::get('/religions/{religion}/denominations/edit/{denomination}', 'editDenomination')->name('religions.edit-denomination');
     });
@@ -54,6 +55,5 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     // Nuggets
     Route::controller(Controllers\NuggetController::class)->group(function () {
         Route::get('/nuggets', 'list')->name('nuggets.list');
-        Route::get('/nuggets/create', 'create')->name('nuggets.create');
     });
 });

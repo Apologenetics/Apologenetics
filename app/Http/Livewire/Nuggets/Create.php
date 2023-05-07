@@ -2,29 +2,60 @@
 
 namespace App\Http\Livewire\Nuggets;
 
-use Livewire\Component;
+use App\Models\Nugget;
+use App\Models\Nuggetable;
 use App\Models\Religion;
 use App\Traits\MapsModels;
 use Illuminate\Database\Eloquent\Model;
+use LivewireUI\Modal\ModalComponent;
 
-class Create extends Component
+class Create extends ModalComponent
 {
     use MapsModels;
 
-    public ?string $type = null;
+    public bool $includeTitle = true;
+
+    public ?string $modelType = null;
 
     public ?int $modelId = null;
 
     public Model $model;
 
+    public array $state = [];
+
     public function mount()
     {
-        $this->type ??= $this->mapToCodeName(Religion::class);
+        $this->modelType ??= $this->mapToCodeName(Religion::class);
 
         $this->modelId ??= 1;
 
-        $this->model = call_user_func([$this->mapToClassName($this->type), 'query'])
+        $this->model = call_user_func([$this->mapToClassName($this->modelType), 'query'])
             ->find($this->modelId);
+
+        $this->state = ['type' => Nugget::NUGGET_TYPE_REFUTE];
+    }
+
+    public function submit()
+    {
+        // Create nugget and apply to
+        // TODO: Validator
+        $nugget = Nugget::query()
+            ->create([
+                'created_by' => auth()->id(),
+                'title' => $this->state['title'],
+                'explanation' => $this->state['content']
+            ]);
+
+        $nuggetable = Nuggetable::query()
+            ->create([
+                'nugget_id' => $nugget->getKey(),
+                'nuggetable_id' => $this->modelId,
+                'nuggetable_type' => $this->mapToClassName($this->modelType),
+                'nugget_type_id' => $this->state['type'],
+                'created_by' => auth()->id()
+            ]);
+
+        $this->state = ['message' => 'Nugget submitted'];
     }
 
     public function render()

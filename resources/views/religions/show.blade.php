@@ -31,9 +31,17 @@
             </div>
             <!-- Nuggets -->
             <div class="w-full h-fit rounded-2xl shadow-xl bg-white flex flex-col space-y-2 p-8">
-                <h2 class="text-4xl font-bold text-sky-900">Nuggets</h2>
+                <div class="w-full flex flex-row justify-between">
+                    <h2 class="text-3xl font-bold text-sky-900">Nuggets</h2>
+                    <button onclick="Livewire.emit('openModal', 'nuggets.create', {{ json_encode([
+                        'modelId' => $religion->getKey(),
+                        'type' => \App\Models\Religion::class
+                        ]) }})">
+                        <span>+</span>
+                    </button>
+                </div>
                 <div class="flex flex-col space-y-6 items-start w-full">
-                    @forelse ([] as $doctrine)
+                    @forelse ($religion->nuggets as $doctrine)
                         <div class="flex flex-row items-center w-full">
                             <!-- Title & Description -->
                             <div class="w-3/5 flex flex-col space-y-2">

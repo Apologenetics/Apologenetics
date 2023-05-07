@@ -47,6 +47,8 @@ class Nugget extends Model implements Votable, Commentable
         Denomination::class => 'denominations',
         Doctrine::class => 'doctrines',
     ];
+    
+    public $guarded = false;
 
     // Attributes
 

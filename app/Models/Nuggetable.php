@@ -13,6 +13,8 @@ class Nuggetable extends Model implements Commentable
 {
     use HasFactory, HasComments;
 
+    public $guarded = false;
+
     public function createdBy(): HasOne
     {
         return $this->hasOne(User::class, 'id', 'created_by');

@@ -27,18 +27,4 @@ class NuggetController extends Controller
             'nuggets' => $user->nuggets ?? [],
         ]);
     }
-
-    public function create(): View
-    {
-        $religions = Religion::query()
-            ->select(['id', 'name'])
-            ->where('approved', true)
-            ->with(['denominations:id,name'])
-            ->get();
-
-        return view('nuggets.create', [
-            'nuggetTypes' => Nugget::NUGGET_TYPES,
-            'religions' => $religions
-        ]);
-    }
 }

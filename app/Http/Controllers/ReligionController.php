@@ -45,19 +45,34 @@ class ReligionController extends Model
         ]);
     }
 
-    public function show(Religion $religion)
+    public function show(Religion $religion, Request $request)
     {
+        $loadAmount = function ($query) use ($request) {
+            $query->inRandomOrder()->take($request->get('limit', 10));
+        };
+
         $religion->load([
             'allDenominations',
-            'doctrines',
+            'doctrines' => $loadAmount,
             'doctrines.createdBy',
             'doctrines.createdBy.faith.religion',
             'doctrines.createdBy.faith.denomination',
+            'doctrines.nuggets' => $loadAmount,
+            'allDenominations.nuggets',
+            'nuggets' => $loadAmount,
             'posts',
         ]);
 
         return view('religions.show', [
             'religion' => $religion,
+        ]);
+    }
+
+    public function addNugget(Religion $religion)
+    {
+        return view('religions.addNugget', [
+            'religion' => $religion,
+            'nuggetType' => \App\Models\Nugget::NUGGET_TYPES
         ]);
     }
 }
