@@ -21,7 +21,7 @@ class NuggetableModal extends ModalComponent
 
     public string $itemType;
 
-    public array $nuggetIds;
+    public array $nuggetIds = [];
 
     public int $nuggetTypeId = 0;
 
@@ -65,9 +65,30 @@ class NuggetableModal extends ModalComponent
         ]));
     }
 
-    public function filter(string $type)
+    public function filter(int $type)
     {
+        if (! isset(Nugget::NUGGET_TYPES[$type])) {
+            $type = Nugget::NUGGET_TYPE_REFUTE;
+        }
 
+        $this->nuggetTypeId = $type;
+
+        $this->item->setRelation(
+            'nuggets',
+            $this->getNuggetsOfType($this->nuggetTypeId)
+        );
+    }
+
+    public function getNuggetsOfType(int $type)
+    {
+        return Nugget::query()
+            ->select(['nuggets.*'])
+            ->join('nuggetables', function ($join) use ($type) {
+                $join->where('nuggetable_type', $this->itemClass);
+                $join->where('nuggetable_id', $this->itemId);
+            })
+            ->where('nuggetables.nugget_type_id', $type)
+            ->get();
     }
 
     public function render()

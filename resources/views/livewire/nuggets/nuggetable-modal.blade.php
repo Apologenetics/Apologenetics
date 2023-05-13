@@ -1,5 +1,3 @@
-@php use App\Models\Nugget @endphp
-
 <div class="flex flex-col p-8 space-y-8">
     <!-- Header -->
     <div class="w-full flex flex-row space-x-6 items-center">
@@ -34,34 +32,15 @@
     </div>
     <!-- Feed filters -->
     <div class="flex flex-row space-x-2 p-2 bg-sky-100 rounded-xl w-fit">
-        <button wire:click="filter('browse_all')" @class([
-            'text-sky-300 rounded-lg px-4',
-            'hover:bg-sky-50' => false,
-            'bg-white text-sky-400 hover:bg-sky-200 font-bold' => true
-        ])>
-            Refutes
-        </button>
-        <button wire:click="filter('recent')" @class([
-            'text-sky-300 rounded-lg py-2 px-4',
-            'hover:bg-sky-50' => true,
-            'bg-white text-sky-400 hover:bg-sky-200 font-bold' => false
-        ])>
-            Supports
-        </button>
-        <button wire:click="filter('following')" @class([
-            'text-sky-300 rounded-lg py-2 px-4',
-            'hover:bg-sky-50' => true,
-            'bg-white text-sky-400 hover:bg-sky-200 font-bold' => false
-        ])>
-            Generals
-        </button>
-        <button wire:click="filter('following')" @class([
-            'text-sky-300 rounded-lg py-2 px-4',
-            'hover:bg-sky-50' => true,
-            'bg-white text-sky-400 hover:bg-sky-200 font-bold' => false
-        ])>
-            Contradictions
-        </button>
+        @foreach(\App\Models\Nugget::NUGGET_TYPES as $key => $nuggetType)
+            <button wire:click="filter({{ $key }})" @class([
+                'text-sky-300 rounded-lg py-2 px-4',
+                'hover:bg-sky-50' => true,
+                'bg-white text-sky-400 hover:bg-sky-200 font-bold' => $key === $nuggetTypeId
+            ])>
+                {{ ucwords($nuggetType) }}
+            </button>
+        @endforeach
     </div>
     <!-- Responses -->
     @if ($item->nuggets->isEmpty())
@@ -69,7 +48,7 @@
         <h2 class="text-2xl font-bold text-slate-700 text-center">No responses</h2>
     @else
         <div class="flex flex-col space-y-8 divide-y divide-sky-200">
-            @foreach ($item->nuggets->where('pivot.nugget_type_id', 0) as $nugget)
+            @foreach ($item->nuggets->where('pivot.nugget_type_id', $nuggetTypeId) as $nugget)
                 <div class="flex flex-row space-y-6 justify-between w-full items-center">
                     <!-- Avatar & Information -->
                     <div class="w-1/2 flex flex-row space-x-6 items-center">

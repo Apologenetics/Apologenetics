@@ -10,10 +10,14 @@
                 <div class="w-full h-full flex flex-col space-y-4">
                     <h1 class="text-4xl font-bold text-sky-900">{{ $denomination->title }}</h1>
                     <p class="text-sm text-slate-400">
-                        <span>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br><br>
-                            Facilisis gravida neque convallis a cras semper auctor. Consequat id porta nibh venenatis cras sed. Ut porttitor leo a diam sollicitudin tempor id eu. Ultrices neque ornare aenean euismod elementum. Dapibus ultrices in iaculis nunc
-                        </span>
+                        @if(isset($denomination->description))
+                            <span>{{ $denomination->description }}</span>
+                        @else
+                            <span>
+                                Facilisis gravida neque convallis a cras semper auctor. Consequat id porta nibh venenatis cras sed. Ut porttitor leo a diam sollicitudin tempor id eu. Ultrices neque ornare aenean euismod elementum. Dapibus ultrices in iaculis nunc
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br><br>
+                            </span>
+                        @endif
                     </p>
                 </div>
             </div>
