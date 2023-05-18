@@ -53,6 +53,16 @@ class Item extends Component
         }
     }
 
+    public function edit()
+    {
+        // Get modal and pre-fill state?
+    }
+
+    public function delete()
+    {
+        // Show delete confirmation modal
+    }
+
     protected function update()
     {
         $this->item->refresh();
