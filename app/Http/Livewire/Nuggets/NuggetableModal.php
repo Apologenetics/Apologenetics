@@ -42,6 +42,7 @@ class NuggetableModal extends ModalComponent
         }
 
         if (! $this->item->relationLoaded('nuggets')) {
+            // TODO: Cache results? Lazy load? Results by key
             $this->item->setRelation(
                 'nuggets',
                 Nugget::query()

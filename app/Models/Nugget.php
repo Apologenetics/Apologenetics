@@ -43,9 +43,9 @@ class Nugget extends Model implements Votable, Commentable
     ];
 
     public const NUGGET_FROM_CLASS_MAP = [
-        Religion::class => 'religions',
-        Denomination::class => 'denominations',
-        Doctrine::class => 'doctrines',
+        'religions' => Religion::class,
+        'denominations' => Denomination::class,
+        'doctrines' => Doctrine::class,
     ];
     
     public $guarded = false;
@@ -212,7 +212,7 @@ class Nugget extends Model implements Votable, Commentable
 
         $types = $nuggetables->where(
             'nuggetable_type',
-            array_flip(self::NUGGET_FROM_CLASS_MAP)[$relationName]
+            self::NUGGET_FROM_CLASS_MAP[$relationName]
         )->pluck('nugget_type_id')->unique();
 
         $singleType = $types->count() === 1;
@@ -270,6 +270,11 @@ class Nugget extends Model implements Votable, Commentable
     public function tags(): MorphToMany
     {
         return $this->morphToMany(Tag::class, 'taggable');
+    }
+
+    public function nuggets(): MorphToMany
+    {
+        return $this->morphedByMany(self::class, 'nuggetable');
     }
 
     public function denominations(): MorphToMany

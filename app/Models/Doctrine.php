@@ -45,6 +45,11 @@ class Doctrine extends Model implements Votable, Commentable
             ->orWhere('description', 'LIKE', '%'.$search.'%');
     }
 
+    public function scopeFromTable(Builder $query, string $table)
+    {
+        return $query->from($table);
+    }
+
     // Relationships
 
     public function createdBy(): HasOne

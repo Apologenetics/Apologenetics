@@ -24,7 +24,7 @@
             <!-- Doctrines -->
             <div class="w-full h-fit rounded-2xl shadow-xl bg-white flex flex-col space-y-2 p-8">
                 <div class="w-full flex flex-row justify-between">
-                    <h2 class="text-3xl font-bold text-sky-900">Doctrines</h2>
+                    <a class="text-3xl font-bold text-sky-900" href={{ route('doctrines.religions', ['religion' => $religion->getKey()]) }}>Doctrines</a>
                     <button onclick="Livewire.emit('openModal', 'doctrines.create', {{ json_encode([
                         'religionId' => $religion->getKey()
                     ]) }})">

@@ -51,39 +51,18 @@ class DoctrineController extends Controller
         ]);
     }
 
-    public function byReligion(Religion $religion): View
+    public function religions(Religion $religion, Request $request): View
     {
-        $religion->load(['doctrines', 'denominations.doctrines']);
-
-        $empty = $religion->doctrines->isEmpty();
-
-        $denominationEmpty = true;
-
-        foreach ($religion->denominations as $denomination) {
-            // Just set the variable once
-            if ($denomination->doctrines->isNotEmpty()) {
-                $denominationEmpty = false;
-
-                break;
-            }
-        }
-
-        return view('doctrines.by-religion', [
-            'religion' => $religion,
-            'empty' => $empty,
-            'denominationEmpty' => $denominationEmpty,
+        // TODO: Make datatable
+        return view('doctrines.religionordenom', [
+            'entity' => $religion,
         ]);
     }
 
-    public function byDenomination(Denomination $denomination): View
+    public function denominations(Denomination $denomination, Request $request): View
     {
-        $denomination->load('doctrines');
-
-        $empty = $denomination->doctrines->isEmpty();
-
-        return view('doctrines.by-denomination', [
-            'denomination' => $denomination,
-            'empty' => $empty,
+        return view('doctrines.religionordenom', [
+            'entity' => $denomination,
         ]);
     }
 
