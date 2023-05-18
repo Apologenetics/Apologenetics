@@ -6,7 +6,7 @@
     <div class="flex flex-row space-x-4 w-full">
         <div class="flex flex-col space-y-2">
             <label for="religion_id" class="font-semibold text-xl">Religion</label>
-            <select id="religion_id" wire:model="state.religion_id" class="w-full">
+            <select id="religion_id" wire:model="state.religion_id" class="rounded-xl">
                 @forelse ($religions as $religion)
                     <option value="{{ $religion->getKey() }}">{{ $religion->name }}</option>
                 @empty
@@ -17,7 +17,7 @@
 
         <div class="flex flex-col space-y-2">
             <label for="denomination_id" class="font-semibold text-xl">Denomination</label>
-            <select id="denomination_id" wire:model="state.denomination_id" class="w-full">
+            <select id="denomination_id" wire:model="state.denomination_id" class="rounded-xl">
                 <option value="0" selected>None</option>
                 @foreach ($denominations ?? [] as $denomination)
                     <option value="{{ $denomination->getKey() }}">{{ $denomination->name }}</option>
@@ -27,12 +27,12 @@
     </div>
 
     <label for="title" class="font-semibold text-xl">Title</label>
-    <input id="title" type="text" class="w-full" wire:model.defer="state.title">
+    <input id="title" type="text" class="w-full rounded-lg bg-gray-100 p-2 border-none" wire:model.defer="state.title">
 
     <label for="description" class="font-semibold text-xl">Description</label>
-    <textarea wire:model.defer="state.description" class="h-48"></textarea>
+    <textarea wire:model.defer="state.description" class="rounded-lg bg-gray-100 p-2 border-none" rows="5"></textarea>
 
-    <div>
+    <div class="w-full flex justify-end">
         <x-jet-button wire:click="submit">
             <svg wire:loading wire:target="submit" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>

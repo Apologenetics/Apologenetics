@@ -15,11 +15,11 @@
         <div class="flex flex-col space-y-4 w-full">
             <div class="flex flex-col space-y-2">
                 <label for="name">Name</label>
-                <input type="text" id="name" wire:model.defer="state.name" />
+                <input type="text" class="rounded-lg bg-gray-100 p-2 border-none" id="name" wire:model.defer="state.name" />
             </div>
             <div class="flex flex-col space-y-2 w-full">
                 <label for="parent">Parent ID (If applicable)</label>
-                <select id="parent" wire:model.defer="state.parent_id">
+                <select id="parent" wire:model.defer="state.parent_id" class="rounded-xl">
                     @if ($religion?->denominations?->isNotEmpty() ?? false)
                         <option selected value>None</option>
                         @foreach ($religion->denominations as $denomination)
@@ -35,7 +35,7 @@
         <div class="flex flex-col space-y-4 w-full">
             <div class="flex flex-col space-y-2 w-full">
                 <label for="religion">Religion</label>
-                <select id="religion" wire:model="state.religion_id">
+                <select id="religion" wire:model="state.religion_id" class="rounded-xl">
                     @forelse ($religions as $religion)
                         <option value="{{ $religion->getKey() }}">{{ $religion->name }}</option>
                     @empty
@@ -47,9 +47,9 @@
     </div>
     <div class="flex flex-col space-y-2 w-full">
         <label for="description">Description</label>
-        <textarea wire:model.defer="state.description" rows="5" id="description"></textarea>
+        <textarea class="rounded-lg bg-gray-100 p-2 border-none" wire:model.defer="state.description" rows="5" id="description"></textarea>
     </div>
-    <div class="w-full">
+    <div class="w-full flex justify-end">
         <x-jet-button wire:click="submit">
             <svg wire:loading wire:target="submit" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>

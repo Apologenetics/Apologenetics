@@ -4,12 +4,12 @@
         <!-- Name -->
         <div class="flex flex-col space-y-2 w-full">
             <label for="name">Name</label>
-            <input type="text" id="name" wire:model.defer="state.name">
+            <input type="text" id="name" class="rounded-lg bg-gray-100 p-2 border-none" wire:model.defer="state.name">
         </div>
         <!-- Parent ID -->
         <div class="flex flex-col space-y-2 w-full">
             <label for="parent_id">Parent (If applicable)</label>
-            <select id="parent_id" wire:model.defer="state.parent_id">
+            <select id="parent_id" wire:model.defer="state.parent_id" class="rounded-xl">
                 @if ($religions->isNotEmpty())
                     <option value="" selected="">Not Applicable</option>
                 @endif
@@ -23,9 +23,9 @@
     </div>
     <div class="flex flex-col space-y-2 w-full">
         <label for="description">Description</label>
-        <textarea wire:model.defer="state.description" rows="5" id="description"></textarea>
+        <textarea wire:model.defer="state.description" rows="5" id="description" class="rounded-lg bg-gray-100 p-2 border-none"></textarea>
     </div>
-    <div>
+    <div class="w-full flex justify-end">
         <x-jet-button wire:click="submit">
             <svg wire:loading wire:target="submit" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>

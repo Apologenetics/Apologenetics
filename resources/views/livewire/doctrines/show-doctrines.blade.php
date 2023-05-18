@@ -22,6 +22,9 @@
                 @endif
             @endforeach
         @endif
+        <div class="flex flex-row w-full px-2 justify-center items-center">
+            <a class="text-md hover:underline font-semibold text-sky-900" href="{{ route('doctrines.'.$type, [$this->entity->getKey()]) }}">See More</a>
+        </div>
     </div>
 @else
     <div class="flex w-full justify-center">

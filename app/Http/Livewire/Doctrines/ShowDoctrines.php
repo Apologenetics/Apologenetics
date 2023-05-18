@@ -6,9 +6,13 @@ use Livewire\Component;
 use App\Models\Religion;
 use App\Models\Denomination;
 use App\Exceptions\Doctrine\InvalidDoctrineSourceException;
+use App\Traits\MapsModels;
+use Illuminate\Support\Pluralizer;
 
 class ShowDoctrines extends Component
 {
+    use MapsModels;
+
     public Religion|Denomination $entity;
 
     public bool $childrenHaveDoctrine = false;
@@ -18,6 +22,10 @@ class ShowDoctrines extends Component
     public bool $showChildren = true;
 
     public bool $showTitle = true;
+
+    public int $limit = 4;
+
+    public string $type;
 
     protected const ALLOWED_CLASSES = [
         'App\Models\Religion',
@@ -41,13 +49,15 @@ class ShowDoctrines extends Component
             }
 
             $this->entity = call_user_func([$className, 'query'])
-                ->with('doctrines')
+                ->withCount(['doctrines' => fn($q) => $q->take($this->limit)])
                 ->find($id);
         }
 
         if (! $this->entity->relationLoaded('doctrines')) {
             $this->entity->load('doctrines.nuggets');
         }
+
+        $this->type = strtolower(Pluralizer::plural($this->mapToCodeName($this->entity::class)));
 
         $this->checkChildren();
     }
