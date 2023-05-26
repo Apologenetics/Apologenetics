@@ -7,10 +7,11 @@ use App\Models\Denomination;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\View\View;
 
 class ReligionController extends Model
 {
-    public function list(Request $request)
+    public function list(Request $request): View
     {
         $showPending = $request->get('showPending', false);
 
@@ -19,12 +20,12 @@ class ReligionController extends Model
         ]);
     }
 
-    public function create()
+    public function create(): View
     {
         return view('religions.create');
     }
 
-    public function createDenomination(Religion $religion)
+    public function createDenomination(Religion $religion): View
     {
         $religion->load('denominations');
 
@@ -33,7 +34,7 @@ class ReligionController extends Model
         ]);
     }
 
-    public function editDenomination(Religion $religion, Denomination $denomination)
+    public function editDenomination(Religion $religion, Denomination $denomination): View
     {
         if ($denomination->religion_id !== $religion->getKey()) {
             abort(Response::HTTP_NOT_FOUND);
@@ -45,7 +46,7 @@ class ReligionController extends Model
         ]);
     }
 
-    public function show(Religion $religion, Request $request)
+    public function show(Religion $religion, Request $request): View
     {
         $loadAmount = function ($query) use ($request) {
             $query->inRandomOrder()->take($request->get('limit', 10));
@@ -68,7 +69,7 @@ class ReligionController extends Model
         ]);
     }
 
-    public function addNugget(Religion $religion)
+    public function addNugget(Religion $religion): View
     {
         return view('religions.addNugget', [
             'religion' => $religion,
