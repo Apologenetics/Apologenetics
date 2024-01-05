@@ -31,7 +31,6 @@ class User extends Authenticatable implements Votable, Commentable
     use Notifiable;
     use TwoFactorAuthenticatable;
     use SoftDeletes;
-    use HasRolesAndAbilities;
     use HasUrlAttributes;
     use HasNuggetRelation;
     use HasVotableRelation;

@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Faith;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class FaithFactory extends Factory
@@ -28,7 +29,7 @@ class FaithFactory extends Factory
             'start_of_faith' => $start = $this->faker->dateTimeBetween(),
             'end_of_faith' => $end = $this->faker->boolean() && $start !== now() ?
                 $this->faker->dateTimeBetween($start->format('Y-m-d')) : null,
-            'user_id' => 0,
+            'user_id' => User::factory(),
             'note' => $this->faker->boolean() ? $this->faker->sentences(2) : null,
             'reason_left' => is_null($end) ? null : $this->faker->sentences(5),
         ];

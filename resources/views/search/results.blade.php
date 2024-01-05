@@ -21,16 +21,23 @@
                 <p class="text-sky-400 text-md">Advanced Filters</p>
             </button>
         </div>
+        @empty($results)
+        <div class="flex flex-col items-center justify-center w-full h-full">
+            <h2 class="text-2xl font-bold">No Results</h2>
+        </div>
+        @else
         <!-- Columns -->
         <div class="flex flex-row space-x-6 w-full">
             <!-- Column 1 -->
             <div class="w-3/4 flex flex-col space-y-6">
                 <div class="flex flex-col bg-white rounded-2xl shadow-xl p-8 h-64"></div>
             </div>
+
             <!-- Column 2 -->
             <div class="w-1/4 flex flex-col space-y-6">
                 <div class="flex flex-col bg-white rounded-2xl shadow-xl p-8 h-44"></div>
             </div>
         </div>
+        @endempty
     </div>
 </x-app-layout>

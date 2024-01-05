@@ -20,7 +20,7 @@ class CreateDoctrinesTable extends Migration
             $table->unsignedBigInteger('created_by');
             $table->unsignedBigInteger('updated_by')->nullable()->default(null);
             $table->string('title');
-            $table->longText('description');
+            $table->longText('description')->nullable();
             $table->json('scriptures')->nullable()->default(null);
             $table->unsignedBigInteger('religion_id');
             $table->unsignedBigInteger('denomination_id')->nullable()->default(null);

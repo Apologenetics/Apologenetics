@@ -30,6 +30,6 @@ final class CreateDoctrine implements CreatesDoctrine
 
         $doctrinableValidated = ($this->doctrinableValidator)($data)->validate();
 
-        $doctrinable = Doctrinable::query()->create($doctrinableValidated);
+        Doctrinable::query()->create($doctrinableValidated);
     }
 }

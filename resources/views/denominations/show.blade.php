@@ -25,9 +25,9 @@
             <div class="w-full h-fit rounded-2xl shadow-xl bg-white flex flex-col space-y-2 p-8">
                 <div class="w-full flex flex-row justify-between">
                     <h2 class="text-3xl font-bold text-sky-900">Doctrines</h2>
-                    <button onclick="Livewire.emit('openModal', 'doctrines.create', {{ json_encode([
+                    <button onclick="Livewire.dispatch('openModal', {component: 'doctrines.create', arguments: {{ json_encode([
                         'religionId' => $denomination->religion_id,
-                        'denominationId' => $denomination->getKey()
+                        'denominationId' => $denomination->getKey( })
                     ]) }})">
                         <span>+</span>
                     </button>

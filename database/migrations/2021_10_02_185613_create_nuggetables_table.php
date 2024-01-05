@@ -14,6 +14,7 @@ class CreateNuggetablesTable extends Migration
     public function up()
     {
         Schema::create('nuggetables', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('nugget_id');
             $table->unsignedBigInteger('nuggetable_id');
             $table->string('nuggetable_type');

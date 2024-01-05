@@ -15,7 +15,6 @@ return new class extends Migration
     {
         // Update nuggetables to be different types to different models
         Schema::table('nuggetables', function (Blueprint $table) {
-            $table->id()->first();
             $table->timestamp('created_at', 0)->nullable()->after('id');
             $table->timestamp('updated_at', 0)->nullable()->after('created_at');
             $table->softDeletes();

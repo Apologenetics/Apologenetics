@@ -2,11 +2,6 @@ import { defineConfig } from 'vite';
 import laravel, { refreshPaths } from 'laravel-vite-plugin';
 
 export default defineConfig({
-    server: {
-        hmr: {
-            host: 'localhost'
-        }
-    },
     plugins: [
         laravel({
             input: [
@@ -15,7 +10,7 @@ export default defineConfig({
             ],
             refresh: [
                 ...refreshPaths,
-                'app/Http/Livewire/**',
+                'app/Livewire/**',
             ],
         }),
     ],
