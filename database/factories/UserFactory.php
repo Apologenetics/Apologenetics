@@ -31,13 +31,14 @@ class UserFactory extends Factory
             'gender' => $gender = $this->faker->boolean() ? 'M' : 'F',
             'first_name' => $gender === 'M' ? $this->faker->firstNameMale() : $this->faker->firstNameFemale(),
             'last_name' => $this->faker->lastName(),
+            'password' => Hash::make('password'),
             'username' => $this->faker->userName(),
             'country_iso_code' => 840, // USA
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => Hash::make('password'), // password
             'remember_token' => Str::random(10),
-            'faith_id' => Faith::factory(),
+            'faith_id' => 0,
         ];
     }
 

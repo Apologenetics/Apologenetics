@@ -24,7 +24,7 @@ class ReligionFactory extends Factory
         return [
             'created_at' => now(),
             'created_by' => 1,
-            'name' => $this->faker->title(),
+            'name' => $this->faker->company(),
             'parent_id' => null,
             'approved' => true,
         ];

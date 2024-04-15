@@ -9,6 +9,8 @@ export default {
         './vendor/laravel/jetstream/**/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
+        './vendor/wire-elements/modal/resources/views/*.blade.php',
+        './vendor/wire-elements/modal/src/ModalComponent.php',
     ],
 
     theme: {

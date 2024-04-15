@@ -1,4 +1,4 @@
-<div class="flex flex-col space-y-4 p-8">
+<div class="flex flex-col space-y-4 p-8 w-full">
     <!-- Row 1 -->
     <div class="flex flex-row space-x-4 w-full">
         <!-- Name -->
