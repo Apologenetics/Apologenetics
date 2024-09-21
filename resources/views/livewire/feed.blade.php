@@ -1,24 +1,24 @@
-<div class="flex flex-col space-y-4">
+<div class="flex flex-col space-y-4" x-cloak>
     <!-- Feed filters -->
     <div class="flex flex-row space-x-2 p-2 bg-sky-100 rounded-xl w-fit">
         <button wire:click="filter('browse_all')" @class([
             'text-sky-300 rounded-lg px-4',
-            'hover:bg-sky-50' => ! $filter['browse_all'],
-            'bg-white text-sky-400 hover:bg-sky-200 font-bold' => $filter['browse_all']
+            'hover:bg-sky-50' => !$filter['browse_all'],
+            'bg-white text-sky-400 hover:bg-sky-200 font-bold' => $filter['browse_all'],
         ])>
             Browse All
         </button>
         <button wire:click="filter('recent')" @class([
             'text-sky-300 rounded-lg py-2 px-4',
-            'hover:bg-sky-50' => ! $filter['recent'],
-            'bg-white text-sky-400 hover:bg-sky-200 font-bold' => $filter['recent']
+            'hover:bg-sky-50' => !$filter['recent'],
+            'bg-white text-sky-400 hover:bg-sky-200 font-bold' => $filter['recent'],
         ])>
             Recent
         </button>
         <button wire:click="filter('following')" @class([
             'text-sky-300 rounded-lg py-2 px-4',
-            'hover:bg-sky-50' => ! $filter['following'],
-            'bg-white text-sky-400 hover:bg-sky-200 font-bold' => $filter['following']
+            'hover:bg-sky-50' => !$filter['following'],
+            'bg-white text-sky-400 hover:bg-sky-200 font-bold' => $filter['following'],
         ])>
             Following
         </button>
@@ -30,17 +30,16 @@
                 <!-- Header -->
                 <div class="w-2/5 flex flex-row space-x-6 items-center">
                     <!-- Avatar -->
-                    @if (! empty($item['created_by_avatar']))
-                        <img src="{{ $item['created_by_avatar'] }}"
-                             class="w-16 h-16 rounded-full shadow-xl"
-                             alt="{{ $item['created_by'] }}">
+                    @if (!empty($item['created_by_avatar']))
+                        <img src="{{ $item['created_by_avatar'] }}" class="w-16 h-16 rounded-full shadow-xl"
+                            alt="{{ $item['created_by'] }}">
                     @else
                         <div class="w-16 h-16 rounded-full bg-gray-500"></div>
                     @endif
                     <!-- Post Author Information -->
                     <div class="flex flex-col">
                         <a href="{{ $item['profile_url'] }}"
-                           class="text-lg font-semibold text-sky-800 hover:underline hover:text-sky-600">
+                            class="text-lg font-semibold text-sky-800 hover:underline hover:text-sky-600">
                             <span>{{ $item['created_by'] }}</span>
                         </a>
                         <p class="text-md text-slate-500">
@@ -53,13 +52,13 @@
                 </div>
                 <!-- Body -->
                 <div class="flex flex-col space-y-4">
-                     @if (isset($item['title']))
+                    @if (isset($item['title']))
                         <p class="text-sky-900 font-bold text-2xl">{{ $item['title'] }}</p>
-                     @endif
+                    @endif
 
                     @if (isset($item['content']))
-                         <p class="text-slate-500">{{ $item['content'] }}</p>
-                     @endif
+                        <p class="text-slate-500">{{ $item['content'] }}</p>
+                    @endif
                 </div>
                 <!-- Footer -->
                 <div class="flex flex-row space-x-4 items-center">

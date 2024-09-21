@@ -13,7 +13,7 @@
                     @forelse ($following as $item)
                         <div class="flex flex-row space-x-2 justify-between items-center w-full">
                             <a class="text-md font-semibold text-slate-500"
-                               href="{{ route($item->getShowRouteAttributes()) }}">
+                                href="{{ route($item->getShowRouteAttributes()) }}">
                                 <span>{{ $item->title }}</span>
                             </a>
                         </div>
@@ -45,7 +45,8 @@
             <livewire:feed />
         </div>
         <!-- Col 3 -->
-        <div class="w-1/5 flex flex-col space-y-4 h-full px-4 pb-8">
+        <div class="w-1/5
+            flex flex-col space-y-4 h-full px-4 pb-8">
             <!-- Following -->
             <div class="flex flex-col space-y-4 h-full bg-white rounded-2xl p-6 justify-between">
                 <!-- Header -->
