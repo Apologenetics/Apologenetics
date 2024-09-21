@@ -75,7 +75,7 @@ class CommentModal extends ModalComponent
     public function post(CreatesComment $createComment)
     {
         $createComment([
-            'user_id' => auth()->id(),
+            'user_id' => \Illuminate\Support\Facades\Auth::id(),
             'commentable_id' => $this->model['id'],
             'commentable_type' => $this->mapToClassName($this->model['model_type']),
             'content' => $this->state['comment'],
@@ -106,7 +106,7 @@ class CommentModal extends ModalComponent
 
         // Search for structure
 
-        return $comment;
+        // return $comment;
     }
 
     public function reply(int $id)

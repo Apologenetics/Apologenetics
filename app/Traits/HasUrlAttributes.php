@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 trait HasUrlAttributes
 {
     /**
-     * Get the name of the class without the namespace
+     * Get the name of the class HasUrlAttributes the namespace
      *
      * @return string
      */

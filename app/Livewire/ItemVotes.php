@@ -35,9 +35,9 @@ class ItemVotes extends Component
         if (! isset($votes)) {
             $votes = is_array($votable) ?
                 Vote::query()
-                    ->where('votable_type', $this->mapToClassName($votable['model_type']))
-                    ->where('votable_id', $votable['model_id'])
-                    ->get() :
+                ->where('votable_type', $this->mapToClassName($votable['model_type']))
+                ->where('votable_id', $votable['model_id'])
+                ->get() :
                 $votable->votes()->get();
 
             if ($votable instanceof Votable) {
@@ -53,7 +53,7 @@ class ItemVotes extends Component
         $this->voteAmount = $votes->sum('amount');
 
         $this->votesFromUser = $votes
-            ->where('user_id', auth()->id())
+            ->where('user_id', \Illuminate\Support\Facades\Auth::id())
             ->sum('amount');
 
         $this->upvoted = $this->votesFromUser > 0;
@@ -74,7 +74,7 @@ class ItemVotes extends Component
         /** @var Vote $vote */
         $vote = Vote::query()
             ->where('votable_type', $this->mapToClassName($this->type))
-            ->where('user_id', auth()->id())
+            ->where('user_id', \Illuminate\Support\Facades\Auth::id())
             ->where('votable_id', $this->modelId)
             ->first();
 
@@ -82,7 +82,7 @@ class ItemVotes extends Component
             Vote::query()
                 ->create([
                     'amount' => 1,
-                    'user_id' => auth()->id(),
+                    'user_id' => \Illuminate\Support\Facades\Auth::id(),
                     'votable_type' => $this->mapToClassName($this->type),
                     'votable_id' => $this->modelId,
                 ]);
@@ -90,8 +90,8 @@ class ItemVotes extends Component
             $this->setVoteType($upvote);
 
             $this->voteAmount = $upvote ?
-                    $this->voteAmount + 1 :
-                    $this->voteAmount - 1;
+                $this->voteAmount + 1 :
+                $this->voteAmount - 1;
         } else {
             $neutral = $vote->amount === 0;
 

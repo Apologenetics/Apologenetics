@@ -2,19 +2,14 @@
 
 namespace App\Models;
 
-use App\Contracts\Vote\Votable;
-use App\Traits\HasUrlAttributes;
-use App\Traits\HasNuggetRelation;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
+
 use Laravel\Sanctum\HasApiTokens;
-use App\Traits\HasVotableRelation;
-use App\Contracts\Comment\Commentable;
 use Illuminate\Database\Query\Builder;
 use Laravel\Jetstream\HasProfilePhoto;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Silber\Bouncer\Database\HasRolesAndAbilities;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -23,24 +18,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable implements Votable, Commentable
+class User extends Authenticatable
 {
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
-    use SoftDeletes;
-    use HasUrlAttributes;
-    use HasNuggetRelation;
-    use HasVotableRelation;
 
-    protected $guarded = false;
+    protected $guarded = ['id'];
 
     /**
      * The attributes that should be hidden for serialization.
      *
-     * @var array
+     * @var array<int, string>
      */
     protected $hidden = [
         'password',
@@ -50,40 +41,43 @@ class User extends Authenticatable implements Votable, Commentable
     ];
 
     /**
-     * The attributes that should be cast.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'country_iso_code' => 'integer',
-        'created_at' => 'immutable_datetime',
-        'updated_at' => 'datetime',
-    ];
-
-    /**
      * The accessors to append to the model's array form.
      *
-     * @var array
+     * @var array<int, string>
      */
     protected $appends = [
         'profile_photo_url',
-        'profile_url'
     ];
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+            'country_iso_code' => 'integer',
+            'created_at' => 'immutable_datetime',
+            'updated_at' => 'datetime'
+        ];
+    }
 
     // Attributes
 
     public function name(): Attribute
     {
         return new Attribute(
-            get: fn ($value, $attributes) => $attributes['first_name'].' '.$attributes['last_name']
+            get: fn($value, $attributes) => $attributes['first_name'] . ' ' . $attributes['last_name']
         );
     }
 
     public function profileUrl(): Attribute
     {
         return new Attribute(
-            get: fn ($value, $attributes) => route('users.show', ['username' => $attributes['username']])
+            get: fn($value, $attributes) => route('users.show', ['username' => $attributes['username']])
         );
     }
 
@@ -100,7 +94,7 @@ class User extends Authenticatable implements Votable, Commentable
                 $faithTitle = $faith->religion->name;
 
                 if (isset($faith->denomination->name)) {
-                    $faithTitle .= ' ('.$faith->denomination->name.')';
+                    $faithTitle .= ' (' . $faith->denomination->name . ')';
                 }
 
                 return $faithTitle;
@@ -135,9 +129,9 @@ class User extends Authenticatable implements Votable, Commentable
 
     public function scopeSearch($query, string $search)
     {
-        return $query->where('first_name', 'LIKE', '%'.$search.'%')
-            ->orWhere('last_name', 'LIKE', '%'.$search.'%')
-            ->orWhere('username', 'LIKE', '%'.$search.'%');
+        return $query->where('first_name', 'LIKE', '%' . $search . '%')
+            ->orWhere('last_name', 'LIKE', '%' . $search . '%')
+            ->orWhere('username', 'LIKE', '%' . $search . '%');
     }
 
     // Relationships

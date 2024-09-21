@@ -30,8 +30,8 @@ class CreateDenomination extends ModalComponent
 
         $this->religion ??= (
             isset($religionId) && $this->religions->contains($religionId)
-                ? $this->religions->where('id', $religionId)->first()
-                : $this->religions->first()
+            ? $this->religions->where('id', $religionId)->first()
+            : $this->religions->first()
         );
 
         $this->state = [
@@ -49,7 +49,7 @@ class CreateDenomination extends ModalComponent
     {
         try {
             $createsDenomination(
-                array_merge($this->state, ['approved' => false, 'created_by' => auth()->id()])
+                array_merge($this->state, ['approved' => false, 'created_by' => \Illuminate\Support\Facades\Auth::id()])
             );
         } catch (ValidationException $e) {
             $this->message = $e->getMessage();

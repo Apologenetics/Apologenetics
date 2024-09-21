@@ -71,7 +71,7 @@ class Create extends ModalComponent
 
     public function submit(CreatesDoctrine $createDoctrine)
     {
-        $this->state['created_by'] = auth()->id();
+        $this->state['created_by'] = \Illuminate\Support\Facades\Auth::id();
 
         $createDoctrine(
             $this->convertEmptyArrayStrings(

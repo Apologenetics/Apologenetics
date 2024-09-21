@@ -18,7 +18,7 @@ class EditUser extends Component
     public function mount(?int $userId = null)
     {
         $this->user ??= User::query()
-            ->find($userId ?? auth()->id());
+            ->find($userId ?? \Illuminate\Support\Facades\Auth::id());
 
         $this->state = $this->user->withoutRelations()
             ->toArray();

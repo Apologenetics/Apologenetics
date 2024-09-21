@@ -13,7 +13,7 @@ Route::get('/search', Controllers\SearchController::class)->name('search.results
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('/dashboard', function () {
         /** @var User */
-        $user = auth()->user();
+        $user = Auth::user();
 
         $user->following()->take(5);
 

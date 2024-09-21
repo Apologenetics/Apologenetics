@@ -17,7 +17,7 @@ class FaithLogs extends Component
     public function mount()
     {
         $this->faiths ??= Faith::query()
-            ->where('user_id', $this->userId ?? auth()->id())
+            ->where('user_id', $this->userId ?? \Illuminate\Support\Facades\Auth::id())
             ->get();
     }
 

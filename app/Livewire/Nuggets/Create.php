@@ -41,7 +41,7 @@ class Create extends ModalComponent
         // TODO: Validator
         $nugget = Nugget::query()
             ->create([
-                'created_by' => auth()->id(),
+                'created_by' => \Illuminate\Support\Facades\Auth::id(),
                 'title' => $this->state['title'],
                 'explanation' => $this->state['content']
             ]);
@@ -52,7 +52,7 @@ class Create extends ModalComponent
                 'nuggetable_id' => $this->modelId,
                 'nuggetable_type' => $this->mapToClassName($this->modelType),
                 'nugget_type_id' => $this->state['type'],
-                'created_by' => auth()->id()
+                'created_by' => \Illuminate\Support\Facades\Auth::id()
             ]);
 
         $this->state = ['message' => 'Nugget submitted'];
