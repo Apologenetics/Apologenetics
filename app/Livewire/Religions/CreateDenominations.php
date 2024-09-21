@@ -7,7 +7,7 @@ use LivewireUI\Modal\ModalComponent;
 use App\Traits\ConvertEmptyArrayStrings;
 use App\Contracts\Denomination\CreatesDenomination;
 
-class CreateDenominations extends ModalComponent
+class CreateDenominations extends \Livewire\Component
 {
     use ConvertEmptyArrayStrings;
 

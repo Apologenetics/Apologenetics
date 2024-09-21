@@ -11,7 +11,7 @@ use Illuminate\Validation\ValidationException;
 use App\Contracts\Denomination\UpdatesDenomination;
 use App\Exceptions\Denomination\MismatchUpdateDenominationException;
 
-class UpdateDenomination extends ModalComponent
+class UpdateDenomination extends \Livewire\Component
 {
     use ConvertEmptyArrayStrings;
 

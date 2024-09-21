@@ -10,7 +10,7 @@ use App\Actions\Faith\UpdateFaith;
 use LivewireUI\Modal\ModalComponent;
 use Illuminate\Database\Eloquent\Collection;
 
-class EditFaith extends ModalComponent
+class EditFaith extends \Livewire\Component
 {
     public Collection $religions;
 

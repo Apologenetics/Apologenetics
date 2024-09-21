@@ -6,7 +6,7 @@ use App\Models\Religion;
 use LivewireUI\Modal\ModalComponent;
 use Illuminate\Database\Eloquent\Collection;
 
-class ListReligions extends ModalComponent
+class ListReligions extends \Livewire\Component
 {
     public ?Collection $religions = null;
 
@@ -24,8 +24,8 @@ class ListReligions extends ModalComponent
 
             if (empty($religionIds)) {
                 $this->religions = $this->showPending ?
-                $religions->get() :
-                $religions->where('approved', true)->get();
+                    $religions->get() :
+                    $religions->where('approved', true)->get();
             } else {
                 $this->religions = $religions->whereIn('id', $religionIds)->get();
             }
@@ -37,8 +37,8 @@ class ListReligions extends ModalComponent
         if (is_numeric($id)) {
             // TODO: Change from this edit to the edit modal
             Religion::query()
-            ->where('id', $id)
-            ->update(['approved' => true]);
+                ->where('id', $id)
+                ->update(['approved' => true]);
 
             $this->dispatch('updated-religion');
         }
@@ -51,9 +51,7 @@ class ListReligions extends ModalComponent
         ]);
     }
 
-    public function delete()
-    {
-    }
+    public function delete() {}
 
     public function pending()
     {

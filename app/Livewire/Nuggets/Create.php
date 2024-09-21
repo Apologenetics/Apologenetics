@@ -9,7 +9,7 @@ use App\Traits\MapsModels;
 use Illuminate\Database\Eloquent\Model;
 use LivewireUI\Modal\ModalComponent;
 
-class Create extends ModalComponent
+class Create extends \Livewire\Component
 {
     use MapsModels;
 

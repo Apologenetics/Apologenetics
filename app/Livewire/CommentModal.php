@@ -6,8 +6,9 @@ use App\Models\Comment;
 use App\Traits\MapsModels;
 use LivewireUI\Modal\ModalComponent;
 use App\Contracts\Comment\CreatesComment;
+use Livewire\Component;
 
-class CommentModal extends ModalComponent
+class CommentModal extends Component
 {
     use MapsModels;
 

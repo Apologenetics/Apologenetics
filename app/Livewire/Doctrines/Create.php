@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-class Create extends ModalComponent
+class Create extends \Livewire\Component
 {
     use ConvertEmptyArrayStrings;
 

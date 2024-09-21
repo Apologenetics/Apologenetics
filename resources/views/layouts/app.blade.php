@@ -76,7 +76,7 @@
                     }
                 }">
                 <!-- Main Sidebar Content -->
-                <div class="flex flex-col w-full">
+                <div class="flex flex-col w-full" x-cloak>
                     <div class="w-full flex flex-row space-x-4 items-center">
                         <div class="w-10 h-10">
                             <svg
@@ -224,6 +224,5 @@
         @stack('modals')
 
         @livewireScripts
-        @livewire('wire-elements-modal')
     </body>
 </html>

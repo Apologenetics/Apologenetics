@@ -8,7 +8,7 @@ use App\Traits\ConvertEmptyArrayStrings;
 use App\Contracts\Religion\CreatesReligion;
 use Illuminate\Database\Eloquent\Collection;
 
-class Create extends ModalComponent
+class Create extends \Livewire\Component
 {
     use ConvertEmptyArrayStrings;
 

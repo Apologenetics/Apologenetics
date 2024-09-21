@@ -6,7 +6,7 @@ use App\Models\Religion;
 use App\Models\Denomination;
 use LivewireUI\Modal\ModalComponent;
 
-class ListDenominations extends ModalComponent
+class ListDenominations extends \Livewire\Component
 {
     public Religion $religion;
 

@@ -9,7 +9,7 @@ use LivewireUI\Modal\ModalComponent;
 use App\Contracts\Faith\CreatesFaith;
 use Illuminate\Database\Eloquent\Collection;
 
-class NewFaith extends ModalComponent
+class NewFaith extends \Livewire\Component
 {
     public Collection $religions;
 

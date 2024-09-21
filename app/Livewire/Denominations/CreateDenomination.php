@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Validation\ValidationException;
 use App\Contracts\Denomination\CreatesDenomination;
 
-class CreateDenomination extends ModalComponent
+class CreateDenomination extends \Livewire\Component
 {
     public ?Collection $religions = null;
 

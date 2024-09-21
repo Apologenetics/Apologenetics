@@ -9,7 +9,7 @@ use App\Actions\Nuggets\CreateNugget;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Validation\ValidationException;
 
-class NuggetableModal extends ModalComponent
+class NuggetableModal extends \Livewire\Component
 {
     use MapsModels;
 
