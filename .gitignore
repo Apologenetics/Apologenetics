@@ -19,6 +19,5 @@ yarn-error.log
 /.idea
 /.vscode
 /.zed
-app/.DS_Store
-app/View/.DS_Store
+.DS_Store
 */** */
