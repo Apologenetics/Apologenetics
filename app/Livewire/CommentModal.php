@@ -82,8 +82,6 @@ class CommentModal extends Component
             'content' => $this->state['comment'],
             'parent_id' => $this->state['parent_id'],
         ]);
-
-        $this->closeModal();
     }
 
     protected function getRecursiveIds(?array $root = null, bool $flat = true): array

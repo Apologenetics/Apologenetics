@@ -34,10 +34,6 @@ class CreateDenominations extends \Livewire\Component
         $createsDenomination(
             $this->convertEmptyArrayStrings($this->state)
         );
-
-        $this->closeModalWithEvents([
-            'created-denomination',
-        ]);
     }
 
     public function render()

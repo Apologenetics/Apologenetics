@@ -1,86 +1,89 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ env('APP_NAME', 'Laravel') }}</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Vite -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <title>{{ env('APP_NAME', 'Laravel') }}</title>
 
-        <style>
-            [x-cloak] {
-                display: none;
-            }
-        </style>
-    </head>
-    <body class="w-full h-screen">
-        <div class="flex flex-row w-full h-full">
-            <!-- Left -->
-            <div class="flex flex-col justify-between items-center w-3/12 bg-sky-100 p-8 ">
-                <!-- App Name -->
-                <div class="flex flex-row justify-center items-center space-x-4 w-full">
-                    <p class="text-2xl font-bold">{{ env('APP_NAME') }}</p>
-                    <div class="w-10 h-10 text-gray-500">
-                        <svg
-                        viewBox="0 0 185.0822 178.14806"
-                        version="1.1"
-                        id="svg4737"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:svg="http://www.w3.org/2000/svg">
-                            <defs
-                                id="defs4734" />
-                            <g
-                                id="layer1"
-                                transform="translate(-17.70363,-14.215199)">
-                                <path
+    <!-- Vite -->
+    @vite(['resources/js/app.js'])
+
+    <style>
+        [x-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="w-full h-screen">
+    <div class="flex flex-row w-full h-full">
+        <!-- Left -->
+        <div class="flex flex-col justify-between items-center w-3/12 bg-sky-100 p-8 ">
+            <!-- App Name -->
+            <div class="flex flex-row justify-center items-center space-x-4 w-full">
+                <p class="text-2xl font-bold">{{ env('APP_NAME') }}</p>
+                <div class="w-10 h-10 text-gray-500">
+                    <svg viewBox="0 0 185.0822 178.14806" version="1.1" id="svg4737"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+                        <defs id="defs4734" />
+                        <g id="layer1" transform="translate(-17.70363,-14.215199)">
+                            <path
                                 style="display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.065;stroke-dasharray:none;stroke-opacity:1"
                                 d="m 32.282524,192.0033 c 0,-0.29803 4.546613,-15.04051 8.466298,-27.45215 0.850197,-2.69214 2.039446,-6.50214 2.642778,-8.46667 0.603329,-1.96453 2.156743,-6.96515 3.452029,-11.1125 1.771578,-5.67238 7.051259,-22.85469 8.876974,-28.88943 0.125254,-0.41401 -0.790808,-0.45344 -12.511359,-0.53851 -12.17984,-0.0884 -12.709975,-0.11315 -14.366303,-0.67075 -11.50307,-3.87248 -14.84068,-16.918134 -6.488152,-25.360114 4.306503,-4.35262 4.215624,-4.33703 25.278087,-4.33703 h 16.911803 l 0.688183,-2.3151 c 0.37851,-1.27331 1.15624,-3.84671 1.7283,-5.71866 0.57206,-1.87196 1.04011,-3.5639 1.04011,-3.75987 0,-0.2944 -3.114336,-0.37008 -17.92552,-0.43555 -21.105465,-0.0933 -20.536809,-0.01 -25.431418,-3.735668 -9.919316,-7.550858 -6.171541,-23.079068 6.47196,-26.815371 1.421667,-0.420118 3.567956,-0.469701 23.719754,-0.547981 l 22.156654,-0.08606 0.1599,-0.716303 c 0.74044,-3.316775 3.22012,-10.812206 4.09823,-12.387863 0.25246,-0.453006 0.61732,-1.10785 0.81082,-1.455208 9.80772,-17.6069138 35.351138,-17.2327698 43.856878,0.642384 1.02896,2.1624 6.96739,20.002285 9.04377,27.16876 l 0.57494,1.984375 h 26.09399 c 29.22655,0 27.71746,-0.09169 31.75325,1.929272 11.89458,5.956325 12.69085,23.806883 1.31146,29.400093 -3.32,1.63184 -2.97334,1.61125 -27.12346,1.61125 -19.56706,0 -22.0825,0.0459 -22.22033,0.40505 -0.13494,0.35164 3.45183,12.666634 3.90072,13.392964 0.11288,0.18264 0.49972,0.17707 1.19565,-0.0172 6.70694,-1.87234 14.68678,1.09464 18.07412,6.72014 5.62944,9.34905 1.1295,21.28911 -8.72794,23.15853 -0.7808,0.14808 -1.50405,0.35676 -1.60722,0.46373 -0.10317,0.10698 0.88016,3.58779 2.18518,7.73513 1.30503,4.14735 4.45882,14.20813 7.00843,22.35729 2.54961,8.14917 5.1171,16.30495 5.70553,18.12396 1.20562,3.72693 2.86465,9.27888 2.86465,9.58655 0,0.11166 -4.61982,0.20302 -10.26627,0.20302 h -10.26627 l -1.2588,-4.16718 c -0.69234,-2.29196 -1.56067,-5.12998 -1.92962,-6.30672 l -0.67082,-2.13953 -47.5141,0.0229 -47.514109,0.0229 -1.876764,6.08541 c -1.032219,3.34698 -1.970841,6.23425 -2.085826,6.41615 -0.303978,0.48089 -20.286167,0.48249 -20.286167,0.002 z M 146.05198,162.10375 c -0.005,-0.22035 -2.07612,-6.85394 -2.15319,-6.89501 -0.0519,-0.0277 -18.03579,-0.0165 -39.96416,0.0248 l -39.869762,0.0751 -0.41124,1.38011 c -0.226181,0.75906 -0.700489,2.30285 -1.05402,3.43064 l -0.642784,2.05052 h 42.048266 c 23.12655,0 42.04765,-0.0298 42.04689,-0.0661 z m -41.64886,-23.48177 c 32.43539,0 34.24184,-0.0244 34.24073,-0.46302 -5.3e-4,-0.25466 -0.40285,-1.77271 -0.89379,-3.37344 l -0.89261,-2.91041 -32.69948,-0.0672 -32.699468,-0.0672 -0.68359,2.31614 c -0.37597,1.27388 -0.85619,2.79637 -1.06715,3.38332 -0.48618,1.35267 -0.48129,1.54048 0.0349,1.34238 0.23018,-0.0883 15.82737,-0.1606 34.660418,-0.1606 z m 53.73965,-14.94929 c 6.37155,-1.89215 4.09305,-9.76571 -2.69671,-9.31871 -3.4316,0.22591 -3.27466,-0.22647 -1.71845,4.95342 0.41533,1.38245 0.88719,3.01956 1.04856,3.63802 0.34106,1.30709 0.96225,1.44129 3.3666,0.72727 z m -26.64149,-8.87236 c 0,-0.0778 -0.48096,-1.65227 -1.06878,-3.49883 l -1.06877,-3.35739 -25.23449,0.0593 -25.234498,0.0592 -0.98689,3.175 c -0.54279,1.74625 -1.0306,3.29406 -1.08402,3.43958 -0.0643,0.17531 9.14362,0.26459 27.290178,0.26459 15.06301,0 27.38728,-0.0636 27.38727,-0.14145 z M 50.803356,101.033 v -5.008934 h -2.513541 -2.513542 l -5.29e-4,5.093234 -5.29e-4,5.09323 2.514134,-0.0843 2.514134,-0.0843 v -5.00892 z m -14.678929,3.86541 c 4.18892,-2.45488 2.841157,-8.781634 -2.039435,-9.573644 -3.190472,-0.51774 -6.451171,2.77032 -5.879403,5.928744 0.707099,3.90595 4.496858,5.65031 7.918838,3.6449 z M 123.82973,90.600106 c 0.001,-0.14552 -0.43287,-1.7231 -0.96488,-3.50573 l -0.9673,-3.24114 H 104.11846 86.339362 l -0.70157,2.3151 c -0.38587,1.27331 -0.87026,2.86543 -1.07642,3.53805 l -0.37485,1.22295 19.820398,-0.0323 c 13.01385,-0.0212 19.82122,-0.12319 19.82281,-0.29691 z m 26.36491,-16.27214 0.0402,-6.085148 h -2.75222 -2.75222 v 6.085418 6.08541 l 2.71198,-2.6e-4 2.71198,-2.7e-4 0.0402,-6.08514 z m 12.79205,2.7e-4 v -6.085418 h -2.77813 -2.77812 v 6.085418 6.08541 h 2.77812 2.77813 z m 12.7,0 v -6.085418 h -2.77813 -2.77812 v 6.085418 6.08541 h 2.77812 2.77813 z m 13.52041,4.72596 c 4.70528,-1.57539 4.81962,-7.66875 0.18027,-9.606718 -1.83019,-0.76451 -3.41343,-0.44549 -4.93484,0.99438 -3.81526,3.610778 -0.14791,10.253748 4.75457,8.612338 z M 115.8222,63.943339 c -0.0689,-0.181901 -0.52683,-1.729714 -1.01763,-3.439583 l -0.89238,-3.108854 h -9.71698 c -8.987308,0 -9.734848,0.03477 -9.954778,0.46302 -0.22042,0.429218 -1.8975,5.981338 -1.8975,6.281859 0,0.07386 5.31103,0.134287 11.802278,0.134287 9.33223,0 11.77604,-0.06922 11.67699,-0.330729 z m -65.00359,-3.175 c 0.0084,-1.491588 0.02225,-3.783541 0.03081,-5.093229 0.0085,-1.309687 0.0016,-2.589609 -0.01527,-2.844271 -0.02702,-0.406318 -0.338617,-0.46302 -2.544339,-0.46302 h -2.513542 v 5.556249 5.55625 h 2.513542 2.513541 l 0.01527,-2.711979 z m 12.684746,-2.976562 v -5.688542 h -2.513542 -2.513541 v 5.688542 5.688541 h 2.513541 2.513542 z m -27.257337,4.564062 c 4.003347,-2.045343 3.816456,-7.320785 -0.320588,-9.04935 -3.411595,-1.425456 -7.158084,1.101151 -7.158084,4.827367 0,3.597408 4.13363,5.930993 7.478672,4.221983 z m 73.294841,-19.14281 c 0,-1.878057 -2.20128,-7.147377 -3.254,-7.789253 -2.97833,-1.815997 -5.52361,-0.144381 -6.801538,4.466931 -0.96256,3.473294 -0.96368,3.469372 0.776938,2.720575 2.5128,-1.080976 7.57639,-0.759746 8.37427,0.531262 0.15957,0.258181 0.90433,0.31623 0.90433,0.07048 z"
                                 id="path4680" />
-                            </g>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <!-- Scripture & Slogan -->
+            <div class="w-full flex flex-col space-y-10 items-center justify-center">
+                <!-- Scripture -->
+                <div class="flex flex-row flex-wrap w-full justify-center">
+                    <h1 class="text-4xl italic font-thin text-center">
+                        "...be prepared in season and out of season"
+                    </h1>
+                    <h1 class="text-2xl font-bold">
+                        - 2 Timothy 4:2
+                    </h1>
+                </div>
+                <!-- Slogan -->
+                <p class="font-semibold italic text-4xl text-center text-slate-800">
+                    <span>Study in season and be ready out of season</span>
+                </p>
+            </div>
+            <!-- Social & Links -->
+            <div class="flex flex-col space-y-4 w-full">
+                <!-- Social -->
+                <div class="flex flex-row space-x-4 w-full justify-center items-center">
+                    <!-- Twitter -->
+                    <a target="_blank" href="https://twitter.com/dominicsears">
+                        <svg version="1.1" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 248 204"
+                            style="enable-background:new 0 0 248 204;" xml:space="preserve">
+                            <path
+                                d="M221.95,51.29c0.15,2.17,0.15,4.34,0.15,6.53c0,66.73-50.8,143.69-143.69,143.69v-0.04   C50.97,201.51,24.1,193.65,1,178.83c3.99,0.48,8,0.72,12.02,0.73c22.74,0.02,44.83-7.61,62.72-21.66   c-21.61-0.41-40.56-14.5-47.18-35.07c7.57,1.46,15.37,1.16,22.8-0.87C27.8,117.2,10.85,96.5,10.85,72.46c0-0.22,0-0.43,0-0.64   c7.02,3.91,14.88,6.08,22.92,6.32C11.58,63.31,4.74,33.79,18.14,10.71c25.64,31.55,63.47,50.73,104.08,52.76   c-4.07-17.54,1.49-35.92,14.61-48.25c20.34-19.12,52.33-18.14,71.45,2.19c11.31-2.23,22.15-6.38,32.07-12.26   c-3.77,11.69-11.66,21.62-22.2,27.93c10.01-1.18,19.79-3.86,29-7.95C240.37,35.29,231.83,44.14,221.95,51.29z" />
                         </svg>
-                    </div>
-                </div>
-                <!-- Scripture & Slogan -->
-                <div class="w-full flex flex-col space-y-10 items-center justify-center">
-                    <!-- Scripture -->
-                    <div class="flex flex-row flex-wrap w-full justify-center">
-                        <h1 class="text-4xl italic font-thin text-center">
-                            "...be prepared in season and out of season"
-                        </h1>
-                        <h1 class="text-2xl font-bold">
-                            - 2 Timothy 4:2
-                        </h1>
-                    </div>
-                    <!-- Slogan -->
-                    <p class="font-semibold italic text-4xl text-center text-slate-800">
-                        <span>Study in season and be ready out of season</span>
-                    </p>
-                </div>
-                <!-- Social & Links -->
-                <div class="flex flex-col space-y-4 w-full">
-                    <!-- Social -->
-                    <div class="flex flex-row space-x-4 w-full justify-center items-center">
-                        <!-- Twitter -->
-                        <a target="_blank" href="https://twitter.com/dominicsears">
-                            <svg version="1.1" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 248 204" style="enable-background:new 0 0 248 204;" xml:space="preserve">
-                                <path d="M221.95,51.29c0.15,2.17,0.15,4.34,0.15,6.53c0,66.73-50.8,143.69-143.69,143.69v-0.04   C50.97,201.51,24.1,193.65,1,178.83c3.99,0.48,8,0.72,12.02,0.73c22.74,0.02,44.83-7.61,62.72-21.66   c-21.61-0.41-40.56-14.5-47.18-35.07c7.57,1.46,15.37,1.16,22.8-0.87C27.8,117.2,10.85,96.5,10.85,72.46c0-0.22,0-0.43,0-0.64   c7.02,3.91,14.88,6.08,22.92,6.32C11.58,63.31,4.74,33.79,18.14,10.71c25.64,31.55,63.47,50.73,104.08,52.76   c-4.07-17.54,1.49-35.92,14.61-48.25c20.34-19.12,52.33-18.14,71.45,2.19c11.31-2.23,22.15-6.38,32.07-12.26   c-3.77,11.69-11.66,21.62-22.2,27.93c10.01-1.18,19.79-3.86,29-7.95C240.37,35.29,231.83,44.14,221.95,51.29z"/>
-                            </svg>
-                        </a>
-                        <!-- YouTube -->
-                        <a target="_blank" href="https://www.youtube.com/channel/UCWv_Ig9CRrwrjEtr2P0TM3Q">
-                            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 200 100">
-                                <path d="m154 17.5c-1.82-6.73-7.07-12-13.8-13.8-9.04-3.49-96.6-5.2-122 0.1-6.73 1.82-12 7.07-13.8 13.8-4.08 17.9-4.39 56.6 0.1 74.9 1.82 6.73 7.07 12 13.8 13.8 17.9 4.12 103 4.7 122 0 6.73-1.82 12-7.07 13.8-13.8 4.35-19.5 4.66-55.8-0.1-75z" fill="currentColor"/>
-                                <path d="m105 55-40.8-23.4v46.8z" fill="#fff"/>
-                            </svg>
-                        </a>
-                        <!-- Instagram -->
-                        <a target="_blank" href="https://www.instagram.com/dominicsears/">
-                            <svg version="1.1" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
+                    </a>
+                    <!-- YouTube -->
+                    <a target="_blank" href="https://www.youtube.com/channel/UCWv_Ig9CRrwrjEtr2P0TM3Q">
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 200 100">
+                            <path
+                                d="m154 17.5c-1.82-6.73-7.07-12-13.8-13.8-9.04-3.49-96.6-5.2-122 0.1-6.73 1.82-12 7.07-13.8 13.8-4.08 17.9-4.39 56.6 0.1 74.9 1.82 6.73 7.07 12 13.8 13.8 17.9 4.12 103 4.7 122 0 6.73-1.82 12-7.07 13.8-13.8 4.35-19.5 4.66-55.8-0.1-75z"
+                                fill="currentColor" />
+                            <path d="m105 55-40.8-23.4v46.8z" fill="#fff" />
+                        </svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a target="_blank" href="https://www.instagram.com/dominicsears/">
+                        <svg version="1.1" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500"
+                            style="enable-background:new 0 0 500 500;" xml:space="preserve">
+                            <g>
                                 <g>
-                                    <g>
-                                        <path class="st0" d="M498.5,147c-1.2-26.6-5.5-44.8-11.6-60.7c-6.4-16.4-14.9-30.4-28.8-44.2s-27.8-22.5-44.2-28.8
+                                    <path class="st0"
+                                        d="M498.5,147c-1.2-26.6-5.5-44.8-11.6-60.7c-6.4-16.4-14.9-30.4-28.8-44.2s-27.8-22.5-44.2-28.8
                                             c-15.9-6.2-34.1-10.4-60.7-11.6c-26.7-1.2-35.2-1.5-103-1.5c-67.9,0-76.4,0.3-103,1.5s-44.8,5.5-60.7,11.6
                                             C70,19.7,56,28.2,42.2,42.1S19.7,69.9,13.4,86.3C7.3,102.2,3,120.4,1.8,147c-1.2,26.7-1.5,35.2-1.5,103c0,67.9,0.3,76.4,1.5,103
                                             c1.2,26.6,5.5,44.8,11.6,60.7c6.4,16.4,14.9,30.4,28.8,44.2C56,471.8,70,480.4,86.4,486.7c15.9,6.2,34.1,10.4,60.7,11.6
@@ -91,13 +94,13 @@
                                             c-8.8-8.8-14.1-17.1-18.8-28.8c-3.4-8.8-7.5-22.1-8.6-46.4c-1.2-26.3-1.5-34.2-1.5-101s0.3-74.7,1.5-101
                                             c1.1-24.4,5.2-37.7,8.6-46.4c4.5-11.6,10-20,18.8-28.8c8.8-8.8,17.1-14.1,28.8-18.8c8.8-3.4,22.1-7.5,46.4-8.6
                                             c26.3-1.2,34.2-1.5,101-1.5s74.7,0.3,101,1.5c24.4,1.1,37.7,5.2,46.4,8.6c11.6,4.5,20,10,28.8,18.8s14.1,17.1,18.8,28.8
-                                            c3.4,8.8,7.5,22.1,8.6,46.4c1.2,26.3,1.5,34.2,1.5,101S454.7,324.7,453.6,351z"/>
-                                        <path class="st1" d="M250,121.6c-71,0-128.4,57.5-128.4,128.4c0,71,57.5,128.4,128.4,128.4S378.4,320.8,378.4,250
+                                            c3.4,8.8,7.5,22.1,8.6,46.4c1.2,26.3,1.5,34.2,1.5,101S454.7,324.7,453.6,351z" />
+                                    <path class="st1" d="M250,121.6c-71,0-128.4,57.5-128.4,128.4c0,71,57.5,128.4,128.4,128.4S378.4,320.8,378.4,250
                                             C378.4,179,321,121.6,250,121.6z M250,333.3c-46,0-83.3-37.3-83.3-83.3s37.3-83.3,83.3-83.3s83.3,37.3,83.3,83.3
-                                            S296,333.3,250,333.3z"/>
-                                        <circle class="st2" cx="383.4" cy="116.6" r="30"/>
-                                    </g>
-                                    <path class="st3" d="M0,250c0,67.9,0.3,76.4,1.5,103c1.2,26.6,5.5,44.8,11.6,60.7c6.4,16.4,14.9,30.4,28.8,44.2
+                                            S296,333.3,250,333.3z" />
+                                    <circle class="st2" cx="383.4" cy="116.6" r="30" />
+                                </g>
+                                <path class="st3" d="M0,250c0,67.9,0.3,76.4,1.5,103c1.2,26.6,5.5,44.8,11.6,60.7c6.4,16.4,14.9,30.4,28.8,44.2
                                         c13.8,13.8,27.8,22.5,44.2,28.8c15.9,6.2,34.1,10.4,60.7,11.6c26.7,1.2,35.2,1.5,103,1.5c67.9,0,76.4-0.3,103-1.5
                                         c26.6-1.2,44.8-5.5,60.7-11.6c16.4-6.4,30.4-14.9,44.2-28.8c13.8-13.8,22.5-27.8,28.8-44.2c6.2-15.9,10.4-34.1,11.6-60.7
                                         c1.2-26.7,1.5-35.2,1.5-103c0-67.9-0.3-76.4-1.5-103s-5.5-44.8-11.6-60.7c-6.4-16.4-14.9-30.4-28.8-44.2
@@ -108,84 +111,95 @@
                                         c8.8,8.8,14.1,17.1,18.8,28.8c3.4,8.8,7.5,22.1,8.6,46.4c1.2,26.3,1.5,34.2,1.5,101s-0.3,74.7-1.5,101c-1.1,24.4-5.2,37.7-8.6,46.4
                                         c-4.5,11.6-10,20-18.8,28.8c-8.8,8.8-17.1,14.1-28.8,18.8c-8.8,3.4-22.1,7.5-46.4,8.6c-26.3,1.2-34.2,1.5-101,1.5
                                         s-74.7-0.3-101-1.5c-24.4-1.1-37.7-5.2-46.4-8.6c-11.6-4.5-20-10-28.8-18.8c-8.8-8.8-14.1-17.1-18.8-28.8
-                                        c-3.4-8.8-7.5-22.1-8.6-46.4C45.3,324.7,45.1,316.7,45.1,250z"/>
-                                </g>
-                            </svg>
-                        </a>
-                    </div>
-                    <!-- Links -->
-                    <div class="flex flex-row space-x-4 flex-wrap w-full justify-center">
-                        <a class="text-slate-500 hover:text-slate-600 hover:underline" target="_blank" href="https://github.com/Apologenetics/Apologenetics">GitHub Project</a>
-                        <!--<span> | </span>-->
-                    </div>
+                                        c-3.4-8.8-7.5-22.1-8.6-46.4C45.3,324.7,45.1,316.7,45.1,250z" />
+                            </g>
+                        </svg>
+                    </a>
                 </div>
-            </div>
-            <!-- Right -->
-            <div class="flex flex-col w-9/12 h-screen overflow-y-auto">
-                <div class="flex flex-col w-full h-full">
-                    <!-- Sign up -->
-                    <div class="flex flex-col w-full items-center h-full justify-center">
-                        <p class="text-lg text-slate-600 font-semibold mb-4">Sign Up for {{ config('app.name') }}</p>
-                        <a href="{{ route('register') }}" class="px-4 py-2 ring-1 ring-slate-300 hover:bg-slate-100 text-slate-500 hover:text-slate-600 rounded-lg w-1/4 text-center">
-                            <span>Sign Up</span>
-                        </a>
-                    </div>
-                    <!-- Or login divider -->
-                    <div class="flex flex-row w-full h-1/16 justify-between">
-                        <!-- Line left -->
-                        <div class="flex flex-col w-full h-full">
-                            <div class="h-full w-full border-b border-slate-200"></div>
-                            <div class="h-full w-full"></div>
-                        </div>
-                        <p class="text-xl text-slate-400 font-semibold w-full text-center">Or Login</p>
-                        <!-- Line right -->
-                        <div class="flex flex-col w-full h-full">
-                            <div class="h-full w-full border-b border-slate-200"></div>
-                            <div class="h-full w-full"></div>
-                        </div>
-                    </div>
-                    <!-- Login form -->
-                    <form method="POST" action="{{ route('login') }}" class="w-full h-full flex flex-col space-y-4 items-center justify-center">
-                        @csrf
-
-                        @if ($errors->any())
-                            <div class="flex flex-col space-y-2 w-1/4 text-center">
-                                <p class="text-md text-red-500">Username or password is incorrect</p>
-                            </div>
-                        @endif
-
-                        <!-- Username -->
-                        <div @class([
-                            'flex flex-row w-1/4 py-2 px-4 space-x-4 rounded-xl ring-1 items-center text-slate-400',
-                            'ring-red-500 placeholder-red-500' => $errors->any(),
-                            'ring-slate-300 text-slate-400 placeholder-slate-400' => ! $errors->any()
-                        ])>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
-                            </svg>
-                            <input id="username" name="username" type="text" value="{{ old('username') }}" required placeholder="username"
-                                class="w-full px-2 focus:placeholder-transparent focus:border-transparent focus:ring-0 outline-0 border-0" />
-                        </div>
-                        <!-- Password -->
-                        <div @class([
-                            'flex flex-row w-1/4 py-2 px-4 space-x-4 rounded-xl ring-1 items-center text-slate-400',
-                            'ring-red-500 placeholder-red-500' => $errors->any(),
-                            'ring-slate-300 text-slate-400 placeholder-slate-400' => ! $errors->any()
-                        ])>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M18 8a6 6 0 01-7.743 5.743L10 14l-1 1-1 1H6v2H2v-4l4.257-4.257A6 6 0 1118 8zm-6-4a1 1 0 100 2 2 2 0 012 2 1 1 0 102 0 4 4 0 00-4-4z" clip-rule="evenodd" />
-                            </svg>
-                            <input id="password" name="password" type="password" value="{{ old('password') }}" required placeholder="password"
-                                class="w-full px-2 focus:placeholder-transparent focus:border-transparent focus:ring-0 outline-0 border-0" />
-                        </div>
-                        <!-- Forgot Password & Sign-in button -->
-                        <div class="flex flex-row items-center justify-between w-1/4 space-x-2">
-                            <a class="text-sm text-slate-400 hover:text-slate-500 underline" href="{{ route('password.request') }}">Forgot password?</a>
-                            <button type="submit" class="text-white font-semibold px-4 py-2 bg-sky-400 rounded-lg">Login</button>
-                        </div>
-                    </form>
+                <!-- Links -->
+                <div class="flex flex-row space-x-4 flex-wrap w-full justify-center">
+                    <a class="text-slate-500 hover:text-slate-600 hover:underline" target="_blank"
+                        href="https://github.com/Apologenetics/Apologenetics">GitHub Project</a>
+                    <!--<span> | </span>-->
                 </div>
             </div>
         </div>
-    </body>
+        <!-- Right -->
+        <div class="flex flex-col w-9/12 h-screen overflow-y-auto">
+            <div class="flex flex-col w-full h-full">
+                <!-- Sign up -->
+                <div class="flex flex-col w-full items-center h-full justify-center">
+                    <p class="text-lg text-slate-600 font-semibold mb-4">Sign Up for {{ config('app.name') }}</p>
+                    <a href="{{ route('register') }}"
+                        class="px-4 py-2 ring-1 ring-slate-300 hover:bg-slate-100 text-slate-500 hover:text-slate-600 rounded-lg w-1/4 text-center">
+                        <span>Sign Up</span>
+                    </a>
+                </div>
+                <!-- Or login divider -->
+                <div class="flex flex-row w-full h-1/16 justify-between">
+                    <!-- Line left -->
+                    <div class="flex flex-col w-full h-full">
+                        <div class="h-full w-full border-b border-slate-200"></div>
+                        <div class="h-full w-full"></div>
+                    </div>
+                    <p class="text-xl text-slate-400 font-semibold w-full text-center">Or Login</p>
+                    <!-- Line right -->
+                    <div class="flex flex-col w-full h-full">
+                        <div class="h-full w-full border-b border-slate-200"></div>
+                        <div class="h-full w-full"></div>
+                    </div>
+                </div>
+                <!-- Login form -->
+                <form method="POST" action="{{ route('login') }}"
+                    class="w-full h-full flex flex-col space-y-4 items-center justify-center">
+                    @csrf
+
+                    @if ($errors->any())
+                        <div class="flex flex-col space-y-2 w-1/4 text-center">
+                            <p class="text-md text-red-500">Username or password is incorrect</p>
+                        </div>
+                    @endif
+
+                    <!-- Username -->
+                    <div @class([
+                        'flex flex-row w-1/4 py-2 px-4 space-x-4 rounded-xl ring-1 items-center text-slate-400',
+                        'ring-red-500 placeholder-red-500' => $errors->any(),
+                        'ring-slate-300 text-slate-400 placeholder-slate-400' => !$errors->any(),
+                    ])>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <input id="username" name="username" type="text" value="{{ old('username') }}" required
+                            placeholder="username"
+                            class="w-full px-2 focus:placeholder-transparent focus:border-transparent focus:ring-0 outline-0 border-0" />
+                    </div>
+                    <!-- Password -->
+                    <div @class([
+                        'flex flex-row w-1/4 py-2 px-4 space-x-4 rounded-xl ring-1 items-center text-slate-400',
+                        'ring-red-500 placeholder-red-500' => $errors->any(),
+                        'ring-slate-300 text-slate-400 placeholder-slate-400' => !$errors->any(),
+                    ])>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M18 8a6 6 0 01-7.743 5.743L10 14l-1 1-1 1H6v2H2v-4l4.257-4.257A6 6 0 1118 8zm-6-4a1 1 0 100 2 2 2 0 012 2 1 1 0 102 0 4 4 0 00-4-4z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <input id="password" name="password" type="password" value="{{ old('password') }}" required
+                            placeholder="password"
+                            class="w-full px-2 focus:placeholder-transparent focus:border-transparent focus:ring-0 outline-0 border-0" />
+                    </div>
+                    <!-- Forgot Password & Sign-in button -->
+                    <div class="flex flex-row items-center justify-between w-1/4 space-x-2">
+                        <a class="text-sm text-slate-400 hover:text-slate-500 underline"
+                            href="{{ route('password.request') }}">Forgot password?</a>
+                        <button type="submit"
+                            class="text-white font-semibold px-4 py-2 bg-sky-400 rounded-lg">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>

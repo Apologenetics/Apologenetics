@@ -52,10 +52,6 @@ class UpdateDenomination extends \Livewire\Component
             $this->convertEmptyArrayStrings($this->state),
             $this->denomination
         );
-
-        $this->closeModalWithEvents([
-            'updated-denomination',
-        ]);
     }
 
     public function render(): View

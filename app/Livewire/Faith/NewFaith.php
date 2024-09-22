@@ -45,10 +45,6 @@ class NewFaith extends \Livewire\Component
     public function submit(CreatesFaith $createsFaith)
     {
         $createsFaith($this->state, $this->denominations->isNotEmpty(), $this->user);
-
-        $this->closeModalWithEvents([
-            'updated-faith',
-        ]);
     }
 
     public function updatedStateReligionId()

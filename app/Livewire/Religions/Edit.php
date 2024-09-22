@@ -42,10 +42,6 @@ class Edit extends \Livewire\Component
             $this->convertEmptyArrayStrings($this->state),
             $this->religion
         );
-
-        $this->closeModalWithEvents([
-            'updated-religion',
-        ]);
     }
 
     public function render()
