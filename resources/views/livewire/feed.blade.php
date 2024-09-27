@@ -1,6 +1,6 @@
 <div class="flex flex-col space-y-4" x-cloak>
     <!-- Feed filters -->
-    <div class="flex flex-row space-x-2 p-2 bg-sky-100 dark:bg-sky-800 rounded-xl w-full md:w-fit">
+    <div class="flex flex-row space-x-2 p-2 bg-sky-100 dark:bg-sky-800 rounded-xl w-full mt-2 md:mt-0 md:w-fit">
         <button wire:click="filter('browse_all')" @class([
             'text-sky-300 rounded-lg px-4 dark:hover:bg-sky-700 transition',
             'hover:bg-sky-50' => !$filter['browse_all'],

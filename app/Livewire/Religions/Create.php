@@ -33,6 +33,8 @@ class Create extends \Livewire\Component
         $createsReligion(
             $this->convertEmptyArrayStrings($this->state)
         );
+
+        $this->dispatch('religion-created');
     }
 
     public function render()

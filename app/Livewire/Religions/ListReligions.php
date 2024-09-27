@@ -5,12 +5,15 @@ namespace App\Livewire\Religions;
 use App\Models\Religion;
 use LivewireUI\Modal\ModalComponent;
 use Illuminate\Database\Eloquent\Collection;
+use Livewire\Attributes\On;
 
 class ListReligions extends \Livewire\Component
 {
     public ?Collection $religions = null;
 
     public bool $showPending = true;
+
+    public bool $showCreateModal = false;
 
     protected $listeners = [
         'created-religion' => '$refresh',
@@ -65,11 +68,10 @@ class ListReligions extends \Livewire\Component
             Religion::query()->where('approved', true)->get();
     }
 
-    public function newReligion()
+    #[On('religion-created')]
+    public function closeCreateModal()
     {
-        // FIXME: Event not refreshing on modal
-        $this->dispatch('openModal', Create::class);
-        $this->dispatch('created-religion');
+        $this->showCreateModal = false;
     }
 
     public function render()
