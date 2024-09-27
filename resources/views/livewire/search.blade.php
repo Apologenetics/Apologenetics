@@ -3,11 +3,11 @@
     <div class="w-full flex flex-row items-center justify-center">
         <!-- Search Icon and Text Field -->
         <div
-            class="flex flex-row gap-2 items-center bg-white rounded-lg w-11/12 py-2 pr-4 ring-1 ring-sky-200 shadow-lg">
+            class="flex flex-row gap-2 items-center bg-white dark:bg-gray-700 dark dark:text-gray-400 dark:ring-sky-500 rounded-lg w-11/12 py-2 pr-4 ring-1 ring-sky-200 shadow-lg">
             <!-- Search Field -->
-            <input type="text" wire:model.debounce.500ms="state.search" wire:keyup.enter="redirectSearch"
+            <input type="text" wire:model.live.debounce.500ms="state.search" wire:keyup.enter="redirectSearch"
                 placeholder="Search for tags, doctrines, religions, denominations, etc..."
-                class="text-gray-600 placeholder-gray-400 text-md bg-white border-none flex-shrink-1 w-full focus:border-transparent focus:ring-0 focus:placeholder-transparent">
+                class="text-gray-600 placeholder-gray-400 text-md bg-white dark:bg-gray-700 dark dark:text-gray-400 dark:ring-sky-500 border-none flex-shrink-1 w-full focus:border-transparent focus:ring-0 focus:placeholder-transparent">
             <!-- Search Icon -->
             <button>
                 <svg class="h-6 w-6 text-sky-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,7 +23,7 @@
     @if (!empty($state['search']))
         <!-- Results -->
         <div x-data @click.away="$el.remove()" style="margin-top: 4.5rem;"
-            class="origin-center absolute w-full rounded-md bg-white ring-1 ring-slate-400 divide-y divide-slate-500 focus:outline-none py-2 space-y-4 oerflow-y-auto max-h-64"
+            class="origin-center absolute w-full rounded-md bg-white dark:bg-gray-700 dark text-gray-400 dark:ring-sky-500 ring-1 ring-slate-400 divide-y divide-slate-500 focus:outline-none py-2 space-y-4 oerflow-y-auto max-h-64"
             tab-index="1">
             <div class="flex flex-col space-between space-y-2">
                 @if (!empty($searchResults))

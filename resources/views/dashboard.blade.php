@@ -1,7 +1,7 @@
 <x-app-layout>
-    <div class="flex flex-row space-x-8 h-full px-6 pt-8">
+    <div class="flex flex-col md:flex-row gap-8 h-full px-6 pt-0 md:pt-8">
         <!-- Col 1 -->
-        <div class="w-1/5 flex flex-col space-y-4 h-full px-4 pb-8">
+        <div class="w-full md:w-1/5 hidden md:flex flex-col space-y-4 h-full px-4 pb-8">
             <!-- Following -->
             <div class="flex flex-col space-y-4 h-full bg-white rounded-2xl p-6 justify-between">
                 <!-- Header -->
@@ -41,12 +41,11 @@
             </div>
         </div>
         <!-- Col 2 -->
-        <div class="w-3/5 flex flex-col space-y-4 h-full overflow-y-auto px-4">
+        <div class="w-full md:w-3/5 flex flex-col space-y-4 h-full overflow-y-auto px-4">
             <livewire:feed />
         </div>
         <!-- Col 3 -->
-        <div class="w-1/5
-            flex flex-col space-y-4 h-full px-4 pb-8">
+        <div class="w-full md:w-1/5 hidden md:flex flex-col space-y-4 h-full px-4 pb-8">
             <!-- Following -->
             <div class="flex flex-col space-y-4 h-full bg-white rounded-2xl p-6 justify-between">
                 <!-- Header -->

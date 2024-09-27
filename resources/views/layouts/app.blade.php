@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    <link rel="manifest" href="manifest.json" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -126,7 +127,7 @@
                         </div>
 
                         <!-- Hamburger Menu -->
-                        <div class="w-fit md:w-full md:pt-8 md:pl-2" x-on:click="openMenu()">
+                        <div class="w-fit md:w-full md:pt-8 md:pl-2 hover:cursor-pointer" x-on:click="openMenu()">
                             <svg class="h-6 w-6 text-slate-500 hover:cursor-pointer" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M3 7H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
@@ -195,8 +196,8 @@
                         </x-menu-icon>
                         <!-- Religions/Denominations -->
                         <x-menu-icon x-cloak :isSelected="request()->is('religions*') || request()->is('denominations*')" x-on:click="openSubMenu('groups')">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="1.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
@@ -297,7 +298,7 @@
             <!-- Header Bar -->
             <div class="flex flex-row justify-center items-center w-full pt-2 px-6" style="height: 10%;">
                 <!-- Hamburger Menu -->
-                <div class="lg:hidden w-fit" x-on:click="openMobile()">
+                <div class="lg:hidden w-fit hover:cursor-pointer" x-on:click="openMobile()">
                     <svg class="h-6 w-6 text-slate-500 hover:cursor-pointer" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path d="M3 7H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
