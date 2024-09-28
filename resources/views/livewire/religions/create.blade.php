@@ -3,14 +3,16 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
         <!-- Name -->
         <div class="flex flex-col space-y-2 w-full">
-            <label for="name">Name</label>
-            <input type="text" id="name" class="rounded-lg bg-gray-100 p-2 border-none"
+            <label for="name" class="text-black dark:text-white font-semibold">Name</label>
+            <input type="text" id="name"
+                class="rounded-lg bg-gray-100 p-2 border-none dark:bg-gray-500 dark:text-white"
                 wire:model.defer="state.name">
         </div>
         <!-- Parent ID -->
         <div class="flex flex-col space-y-2 w-full">
-            <label for="parent_id">Parent (If applicable)</label>
-            <select id="parent_id" wire:model.defer="state.parent_id" class="rounded-xl">
+            <label for="parent_id" class="text-black dark:text-white font-semibold">Parent (If applicable)</label>
+            <select id="parent_id" wire:model.defer="state.parent_id"
+                class="rounded-xl dark:bg-gray-500 text-black dark:text-white">
                 @if ($religions->isNotEmpty())
                     <option value="" selected="">Not Applicable</option>
                 @endif
@@ -23,9 +25,9 @@
         </div>
     </div>
     <div class="flex flex-col space-y-2 w-full">
-        <label for="description">Description</label>
+        <label class="text-black dark:text-white font-semibold" for="description">Description</label>
         <textarea wire:model.defer="state.description" rows="10" id="description"
-            class="rounded-lg bg-gray-100 p-2 border-none"></textarea>
+            class="rounded-lg bg-gray-100 p-2 border-none dark:bg-gray-500 text-black dark:text-white"></textarea>
     </div>
     <div class="w-full flex justify-end">
         <x-button wire:click="submit">

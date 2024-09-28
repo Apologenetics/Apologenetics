@@ -1,6 +1,6 @@
-<div class="flex flex-col space-y-4 w-full p-8" x-data="{ showModal: @entangle('showCreateModal') }">
+<div class="flex flex-col space-y-4 w-full p-8 bg-white dark:bg-gray-700 rounded-xl" x-data="{ showModal: @entangle('showCreateModal') }">
     <div class="flex flex-col md:flex-row gap-4">
-        <p class="text-3xl font-semibold">
+        <p class="text-3xl font-semibold text-black dark:text-white">
             Religions - ({{ $religions->where('approved', true)->count() }})
         </p>
         <div class="flex flex-row gap-4 flex-wrap w-full">

@@ -6,15 +6,15 @@
     <div class="flex flex-col gap-4 md:w-3/4 md:h-fit xl:h-full">
         <!-- Avatar, Name, and Description -->
         <div
-            class="w-full h-fit rounded-2xl shadow-xl bg-white flex flex-col md:flex-row justify-center md:justify-none items-center p-8 gap-12">
+            class="w-full h-fit rounded-2xl shadow-xl bg-white dark:bg-gray-600 flex flex-col md:flex-row justify-center md:justify-none items-center p-8 gap-12">
             <div class="h-full flex justify-center items-center">
-                <div class="w-32 h-32 rounded-full bg-gray-600"></div>
+                <div class="w-32 h-32 rounded-full bg-gray-600 dark:bg-gray-300"></div>
             </div>
             <div class="w-full h-full flex flex-col space-y-4">
-                <h1 class="text-center md:text-left text-4xl font-bold text-sky-900">{{ $religion->title }}</h1>
+                <h1 class="text-center md:text-left text-4xl font-bold text-sky-700">{{ $religion->title }}</h1>
                 <p class="text-center md:text-left text-sm text-slate-400">
                     @if (isset($religion->description))
-                        <span>{{ $religion->description }}</span>
+                        <span class="text-black dark:text-white">{{ $religion->description }}</span>
                     @else
                         <span>
                             Facilisis gravida neque convallis a cras semper auctor. Consequat id porta nibh
