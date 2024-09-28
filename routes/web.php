@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers;
+use App\Livewire\Religions\ShowReligion;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -33,7 +34,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::controller(Controllers\ReligionController::class)->group(function () {
         Route::get('/religions', 'list')->name('religions.list');
         Route::get('/religions/create', 'create')->name('religions.create');
-        Route::get('/religions/{religion}', 'show')->name('religions.show');
+        Route::get('/religions/{religion}', ShowReligion::class)->name('religions.show');
         Route::get('/religions/{religion}/addNugget', 'addNugget')->name('religions.addNugget');
         Route::get('/religions/{religion}/denominations/create', 'createDenomination')->name('religions.create-denomination');
         Route::get('/religions/{religion}/denominations/edit/{denomination}', 'editDenomination')->name('religions.edit-denomination');

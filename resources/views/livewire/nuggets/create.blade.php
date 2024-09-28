@@ -16,8 +16,8 @@
         <!-- Nugget Type -->
         <div class="flex flex-col space-y-2">
             <select id="type" wire:model.defer="state.type" class="rounded-xl">
-                @forelse(\App\Models\Nugget::NUGGET_TYPES as $nuggetType)
-                    <option value="{{ $nuggetType }}">{{ ucwords($nuggetType) }}</option>
+                @forelse(\App\Models\Nugget::NUGGET_TYPES as $key => $nuggetType)
+                    <option value="{{ $key }}">{{ ucwords($nuggetType) }}</option>
                 @empty
                     <option></option>
                 @endforelse
@@ -27,12 +27,14 @@
     <!-- Title -->
     <div class="flex flex-col space-y-2">
         <label for="title" class="text-md font-semibold">Title</label>
-        <input type="text" id="title" class="w-full rounded-lg bg-gray-100 p-2 border-none" wire:model.defer="state.title" />
+        <input type="text" id="title" class="w-full rounded-lg bg-gray-100 p-2 border-none"
+            wire:model.defer="state.title" />
     </div>
     <!-- Content -->
     <div class="flex flex-col space-y-2">
         <label for="content" class="text-md font-semibold">Content</label>
-        <textarea rows="5" type="text" id="content" class="w-full rounded-lg bg-gray-100 p-2 border-none" wire:model.defer="state.content"></textarea>
+        <textarea rows="5" type="text" id="content" class="w-full rounded-lg bg-gray-100 p-2 border-none"
+            wire:model.defer="state.content"></textarea>
     </div>
     <!-- Submit -->
     <div class="flex flex-row justify-end">

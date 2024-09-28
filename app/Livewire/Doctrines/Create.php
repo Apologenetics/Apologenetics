@@ -73,7 +73,7 @@ class Create extends \Livewire\Component
     {
         $this->state['created_by'] = \Illuminate\Support\Facades\Auth::id();
 
-        $createDoctrine(
+        $model = $createDoctrine(
             $this->convertEmptyArrayStrings(
                 array_merge($this->state, [
                     'doctrinable_type' => empty($this->state['denomination_id']) ?
@@ -86,7 +86,7 @@ class Create extends \Livewire\Component
 
         $this->state = ['religion_id' => $this->religions->first()->getKey(), 'denomination_id' => 0];
 
-        $this->dispatch('update');
+        $this->dispatch('doctrine-created', doctrine: $model);
     }
 
     public function updatedStateReligionId()

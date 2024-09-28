@@ -8,6 +8,7 @@ use App\Models\Denomination;
 use App\Exceptions\Doctrine\InvalidDoctrineSourceException;
 use App\Traits\MapsModels;
 use Illuminate\Support\Pluralizer;
+use Livewire\Attributes\On;
 
 class ShowDoctrines extends Component
 {
@@ -30,10 +31,6 @@ class ShowDoctrines extends Component
     protected const ALLOWED_CLASSES = [
         'App\Models\Religion',
         'App\Models\Denomination',
-    ];
-
-    protected $listeners = [
-        'update' => 'update',
     ];
 
     /**
@@ -66,7 +63,7 @@ class ShowDoctrines extends Component
     {
         if ($this->isReligion = $this->entity instanceof Religion) {
             $this->childrenHaveDoctrine = $this->entity->denominations
-                ->filter(fn ($v) => $v->doctrines->isNotEmpty())
+                ->filter(fn($v) => $v->doctrines->isNotEmpty())
                 ->isNotEmpty();
         }
     }
@@ -78,8 +75,6 @@ class ShowDoctrines extends Component
         $this->entity->load('allDenominations.doctrines');
 
         $this->checkChildren();
-
-        $this->dispatch('closeModal');
     }
 
     public function render()

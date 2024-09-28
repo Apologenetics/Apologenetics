@@ -56,6 +56,8 @@ class Create extends \Livewire\Component
             ]);
 
         $this->state = ['message' => 'Nugget submitted'];
+
+        $this->dispatch('nugget-created', nugget: $nugget->toArray());
     }
 
     public function render()

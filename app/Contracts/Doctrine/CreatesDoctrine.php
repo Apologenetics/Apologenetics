@@ -2,6 +2,8 @@
 
 namespace App\Contracts\Doctrine;
 
+use App\Models\Doctrine;
+
 interface CreatesDoctrine
 {
     /**
@@ -10,5 +12,5 @@ interface CreatesDoctrine
      * @param  array  $data
      * @return void
      */
-    public function __invoke(array $data): void;
+    public function __invoke(array $data): Doctrine;
 }

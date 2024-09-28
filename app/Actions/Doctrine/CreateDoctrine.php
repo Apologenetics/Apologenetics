@@ -14,13 +14,12 @@ final class CreateDoctrine implements CreatesDoctrine
     public function __construct(
         private ValidatesDoctrine $doctrineValidator,
         private ValidatesDoctrinable $doctrinableValidator
-    ) {
-    }
+    ) {}
 
     /**
      * @throws ValidationException
      */
-    public function __invoke(array $data): void
+    public function __invoke(array $data): Doctrine
     {
         $doctrineValidated = ($this->doctrineValidator)($data)->validate();
 
@@ -31,5 +30,7 @@ final class CreateDoctrine implements CreatesDoctrine
         $doctrinableValidated = ($this->doctrinableValidator)($data)->validate();
 
         Doctrinable::query()->create($doctrinableValidated);
+
+        return $doctrine;
     }
 }
