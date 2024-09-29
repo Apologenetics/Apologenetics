@@ -1,6 +1,7 @@
 <div class="flex flex-col md:flex-row gap-4 w-full h-full pt-8 px-6 overflow-y-auto" x-data="{
     showDoctrineModal: @entangle('showDoctrineModal'),
-    showNuggetModal: @entangle('showNuggetModal')
+    showNuggetModal: @entangle('showNuggetModal'),
+    showDenominationModal: @entangle('showDenominationModal')
 }">
     <!-- Column 1 -->
     <div class="flex flex-col gap-4 md:w-3/4 md:h-fit xl:h-full">
@@ -159,14 +160,43 @@
                 </div>
             </div>
         </div>
-        <div class="w-full h-fit rounded-2xl shadow-xl bg-white flex flex-col p-8">
+        <!-- Denominations -->
+        <div class="w-full h-fit rounded-2xl shadow-xl bg-white flex flex-col space-y-2 p-8">
+            <div class="w-full flex flex-row justify-between">
+                <h2 class="text-3xl font-bold text-sky-900">Denominations</h2>
+                <button @click="showDenominationModal = !showDenominationModal">
+                    <svg class="text-gray-400 hover:text-gray-700 transition" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z"
+                            fill="currentColor" />
+                        <path
+                            d="M16 12.75H8C7.59 12.75 7.25 12.41 7.25 12C7.25 11.59 7.59 11.25 8 11.25H16C16.41 11.25 16.75 11.59 16.75 12C16.75 12.41 16.41 12.75 16 12.75Z"
+                            fill="currentColor" />
+                        <path
+                            d="M12 16.75C11.59 16.75 11.25 16.41 11.25 16V8C11.25 7.59 11.59 7.25 12 7.25C12.41 7.25 12.75 7.59 12.75 8V16C12.75 16.41 12.41 16.75 12 16.75Z"
+                            fill="currentColor" />
+                    </svg>
+                </button>
+            </div>
+            <div class="w-full flex flex-col overflow-x-auto h-auto divide-y divide-sky-400">
+                @forelse ($religion->allDenominations->take(10) as $denomination)
+                    <p>{{ $denomination->name }}</p>
+                @empty
+                    <div class="w-full h-full flex items-center justify-center">
+                        <p class="text-md">No items available</p>
+                    </div>
+                @endforelse
+            </div>
+        </div>
+        {{-- <div class="w-full h-fit rounded-2xl shadow-xl bg-white flex flex-col p-8">
             <livewire:list-items :classType="\App\Models\Denomination::class" :items="$religion->allDenominations->take(10)" modalName="denominations.create-denomination"
-                :modalParams="['religionId' => $religion->getKey()]" :params="[
+                aplineString="showDenominationModal = !showDenominationModal" :modalParams="['religionId' => $religion->getKey()]" :params="[
                     'parentClass' => $religion::class,
                     'relation' => 'allDenominations',
                     'id' => $religion->getKey(),
                 ]" />
-        </div>
+        </div> --}}
         <div class="w-full h-fit rounded-2xl shadow-xl bg-white flex flex-col p-8 mb-12">
             <livewire:list-items :classType="\App\Models\Post::class" :items="$religion->posts->take(10)" />
         </div>
@@ -179,6 +209,10 @@
 
         <x-modal id="nugget-modal" wire:model="showNuggetModal">
             <livewire:nuggets.create :modelId="$religion->getKey()" :type=$religion::class />
+        </x-modal>
+
+        <x-modal id="denomination-modal" wire:model="showDenominationModal">
+            <livewire:religions.create-denominations :religionData="$religion->toArray()" />
         </x-modal>
     @endpush
 </div>

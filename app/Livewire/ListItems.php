@@ -7,6 +7,7 @@ use App\Traits\MapsModels;
 use App\Contracts\Approvable;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Livewire\Attributes\Locked;
 
 class ListItems extends Component
 {
@@ -23,6 +24,9 @@ class ListItems extends Component
     public array $modalParams = [];
 
     public array $params = [];
+
+    #[Locked]
+    public ?string $alpineString = null;
 
     public ?string $button = null;
 
@@ -71,8 +75,10 @@ class ListItems extends Component
     {
         $paramKeys = array_keys($this->params);
 
-        if (! empty($paramKeys) && in_array('parentClass', $paramKeys) &&
-            in_array('relation', $paramKeys) && in_array('id', $paramKeys)) {
+        if (
+            ! empty($paramKeys) && in_array('parentClass', $paramKeys) &&
+            in_array('relation', $paramKeys) && in_array('id', $paramKeys)
+        ) {
             $this->items = call_user_func([$this->params['parentClass'], 'query'])
                 ->with($this->params['relation'])
                 ->find($this->params['id'])

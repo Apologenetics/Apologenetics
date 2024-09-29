@@ -31,9 +31,11 @@ class CreateDenominations extends \Livewire\Component
 
     public function submit(CreatesDenomination $createsDenomination)
     {
-        $createsDenomination(
+        $denomination = $createsDenomination(
             $this->convertEmptyArrayStrings($this->state)
         );
+
+        $this->dispatch('denomination-created', denomination: $denomination->toArray());
     }
 
     public function render()

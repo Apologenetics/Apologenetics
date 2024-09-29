@@ -16,6 +16,8 @@ class ShowReligion extends Component
 
     public bool $showNuggetModal = false;
 
+    public bool $showDenominationModal = false;
+
     public int $loadAmount = 10;
 
     public function mount(Request $request, Religion $religion)
@@ -70,6 +72,12 @@ class ShowReligion extends Component
     }
 
     public function updateNuggetList(array $nugget) {}
+
+    #[On('denomination-created')]
+    public function closeDenominationModal(array $denomination = [])
+    {
+        $this->showDenominationModal = false;
+    }
 
     public function render()
     {
