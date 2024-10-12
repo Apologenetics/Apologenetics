@@ -1,12 +1,12 @@
-<div class="bg-white p-8 flex flex-col w-full space-y-4 rounded-2xl shadow-2xl">
+<div class="p-8 flex flex-col w-full space-y-4 rounded-2xl shadow-2xl">
     @if (isset($entity))
-        <p class="font-bold text-3xl">{{ $entity->title }}</p>
+        <p class="font-bold text-3xl text-black dark:text-white">{{ $entity->title }}</p>
     @endif
 
     <div class="flex flex-col md:flex-row gap-4 w-full max-w-2xl">
         <div class="flex flex-col space-y-2 w-full">
-            <label for="religion_id" class="font-semibold text-xl">Religion</label>
-            <select id="religion_id" wire:model="state.religion_id" class="rounded-xl">
+            <label for="religion_id" class="font-semibold text-xl text-black dark:text-white">Religion</label>
+            <select id="religion_id" wire:model="state.religion_id" class="rounded-xl dark:bg-gray-600 dark:text-white">
                 @forelse ($religions as $religion)
                     <option value="{{ $religion->getKey() }}">{{ $religion->name }}</option>
                 @empty
@@ -16,8 +16,9 @@
         </div>
 
         <div class="flex flex-col space-y-2 w-full">
-            <label for="denomination_id" class="font-semibold text-xl">Denomination</label>
-            <select id="denomination_id" wire:model="state.denomination_id" class="rounded-xl">
+            <label for="denomination_id" class="font-semibold text-xl text-black dark:text-white">Denomination</label>
+            <select id="denomination_id" wire:model="state.denomination_id"
+                class="rounded-xl dark:bg-gray-600 dark:text-white">
                 <option value="0" selected>None</option>
                 @foreach ($denominations ?? [] as $denomination)
                     <option value="{{ $denomination->getKey() }}">{{ $denomination->name }}</option>
@@ -26,12 +27,14 @@
         </div>
     </div>
 
-    <label for="title" class="font-semibold text-xl">Title</label>
-    <input id="title" type="text" class="w-full rounded-lg bg-gray-100 p-2 border-none"
+    <label for="title" class="font-semibold text-xl text-black dark:text-white">Title</label>
+    <input id="title" type="text"
+        class="w-full rounded-lg bg-gray-100 dark:bg-gray-600 dark:text-white p-2 border-none"
         wire:model.defer="state.title">
 
-    <label for="description" class="font-semibold text-xl">Description</label>
-    <textarea wire:model.defer="state.description" class="rounded-lg bg-gray-100 p-2 border-none" rows="5"></textarea>
+    <label for="description" class="font-semibold text-xl text-black dark:text-white">Description</label>
+    <textarea wire:model.defer="state.description"
+        class="rounded-lg bg-gray-100 dark:bg-gray-600 dark:text-white p-2 border-none" rows="5"></textarea>
 
     <div class="w-full flex justify-end">
         <x-button wire:click="submit">

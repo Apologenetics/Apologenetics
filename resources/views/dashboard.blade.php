@@ -3,10 +3,10 @@
         <!-- Col 1 -->
         <div class="w-full md:w-1/5 hidden md:flex flex-col space-y-4 h-full px-4 pb-8">
             <!-- Following -->
-            <div class="flex flex-col space-y-4 h-full bg-white rounded-2xl p-6 justify-between">
+            <div class="flex flex-col space-y-4 h-full bg-white dark:bg-gray-700 rounded-2xl p-6 justify-between">
                 <!-- Header -->
                 <div class="flex flex-col">
-                    <p class="font-bold text-2xl text-sky-900">Following</p>
+                    <p class="font-bold text-2xl text-sky-900 dark:text-sky-700">Following</p>
                 </div>
                 <div class="flex flex-col space-y-4 w-full h-full">
                     <!-- Items -->
@@ -29,10 +29,10 @@
             </div>
             <hr class="border border-sky-200">
             <!-- Activity -->
-            <div class="flex flex-col space-y-4 h-full bg-white rounded-2xl p-6 justify-between">
+            <div class="flex flex-col space-y-4 h-full bg-white dark:bg-gray-700 rounded-2xl p-6 justify-between">
                 <!-- Header -->
                 <div class="flex flex-col">
-                    <p class="font-bold text-2xl text-sky-900">Activity</p>
+                    <p class="font-bold text-2xl text-sky-900 dark:text-sky-700">Activity</p>
                 </div>
                 <div class="flex flex-col space-y-4">
                     <!-- Items -->
@@ -47,10 +47,10 @@
         <!-- Col 3 -->
         <div class="w-full md:w-1/5 hidden md:flex flex-col space-y-4 h-full px-4 pb-8">
             <!-- Following -->
-            <div class="flex flex-col space-y-4 h-full bg-white rounded-2xl p-6 justify-between">
+            <div class="flex flex-col space-y-4 h-full bg-white dark:bg-gray-700 rounded-2xl p-6 justify-between">
                 <!-- Header -->
                 <div class="flex flex-col">
-                    <p class="font-bold text-2xl text-sky-900">Following</p>
+                    <p class="font-bold text-2xl text-sky-900 dark:text-sky-700">Following</p>
                 </div>
                 <div class="flex flex-col space-y-4">
                     <!-- Items -->
@@ -59,10 +59,10 @@
             </div>
             <hr class="border border-sky-200">
             <!-- Activity -->
-            <div class="flex flex-col space-y-4 h-full bg-white rounded-2xl p-6 justify-between">
+            <div class="flex flex-col space-y-4 h-full bg-white dark:bg-gray-700 rounded-2xl p-6 justify-between">
                 <!-- Header -->
                 <div class="flex flex-col">
-                    <p class="font-bold text-2xl text-sky-900">Activity</p>
+                    <p class="font-bold text-2xl text-sky-900 dark:text-sky-700">Activity</p>
                 </div>
                 <div class="flex flex-col space-y-4">
                     <!-- Items -->

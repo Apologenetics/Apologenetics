@@ -7,7 +7,7 @@
     <div class="flex flex-col gap-4 md:w-3/4 md:h-fit xl:h-full">
         <!-- Avatar, Name, and Description -->
         <div
-            class="w-full h-fit rounded-2xl shadow-xl bg-white dark:bg-gray-600 flex flex-col md:flex-row justify-center md:justify-none items-center p-8 gap-12">
+            class="w-full h-fit rounded-2xl shadow-xl bg-white dark:bg-gray-700 flex flex-col md:flex-row justify-center md:justify-none items-center p-8 gap-12">
             <div class="h-full flex justify-center items-center">
                 <div class="w-32 h-32 rounded-full bg-gray-600 dark:bg-gray-300"></div>
             </div>
@@ -33,9 +33,9 @@
             </div>
         </div>
         <!-- Doctrines -->
-        <div class="w-full h-fit rounded-2xl shadow-xl bg-white flex flex-col space-y-2 p-8">
+        <div class="w-full h-fit rounded-2xl shadow-xl bg-white dark:bg-gray-700 flex flex-col space-y-2 p-8">
             <div class="w-full flex flex-row justify-between">
-                <a class="text-3xl font-bold text-sky-900"
+                <a class="text-3xl font-bold text-sky-900 dark:text-sky-600"
                     href={{ route('doctrines.religions', ['religion' => $religion->getKey()]) }}>Doctrines</a>
                 <button @click="showDoctrineModal = !showDoctrineModal">
                     <svg class="text-gray-400 hover:text-gray-700 transition" width="24" height="24"
@@ -55,9 +55,9 @@
             <livewire:doctrines.show-doctrines :entity="$religion" :showTitle="false" />
         </div>
         <!-- Nuggets -->
-        <div class="w-full h-fit rounded-2xl shadow-xl bg-white flex flex-col space-y-2 p-8">
+        <div class="w-full h-fit rounded-2xl shadow-xl bg-white dark:bg-gray-700 flex flex-col space-y-2 p-8">
             <div class="w-full flex flex-row justify-between">
-                <h2 class="text-3xl font-bold text-sky-900">Nuggets</h2>
+                <h2 class="text-3xl font-bold text-sky-900 dark:text-sky-600">Nuggets</h2>
                 <button @click="showNuggetModal = !showNuggetModal">
                     <svg class="text-gray-400 hover:text-gray-700 transition" width="24" height="24"
                         viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -73,12 +73,12 @@
                     </svg>
                 </button>
             </div>
-            <div class="w-full flex flex-col overflow-x-auto h-auto divide-y divide-sky-400">
+            <div class="w-full flex flex-col overflow-x-auto h-auto9 divide-y divide-sky-400">
                 @forelse ($religion->nuggets as $nugget)
                     <livewire:item :item="$nugget->withoutRelations()" :user="$nugget->createdBy" />
                 @empty
                     <div class="w-full h-full flex items-center justify-center">
-                        <p class="text-2xl font-semibold">No nuggets available</p>
+                        <p class="text-2xl font-semibold text-black dark:text-white">No nuggets available</p>
                     </div>
                 @endforelse
             </div>
@@ -86,7 +86,7 @@
     </div>
     <!-- Column 2 -->
     <div class="flex flex-col gap-4 md:w-1/4 h-fit xl:h-full">
-        <div class="w-full h-fit rounded-2xl shadow-xl bg-white flex flex-row p-8 justify-between">
+        <div class="w-full h-fit rounded-2xl shadow-xl bg-white dark:bg-gray-700 flex flex-row p-8 justify-between">
             <!-- Column 1 -->
             <div class="flex flex-col justify-between space-y-8">
                 <!-- Row 1 -->
@@ -161,9 +161,9 @@
             </div>
         </div>
         <!-- Denominations -->
-        <div class="w-full h-fit rounded-2xl shadow-xl bg-white flex flex-col space-y-2 p-8">
+        <div class="w-full h-fit rounded-2xl shadow-xl bg-white dark:bg-gray-700 flex flex-col space-y-2 p-8">
             <div class="w-full flex flex-row justify-between">
-                <h2 class="text-3xl font-bold text-sky-900">Denominations</h2>
+                <h2 class="text-3xl font-bold text-sky-900 dark:text-sky-600">Denominations</h2>
                 <button @click="showDenominationModal = !showDenominationModal">
                     <svg class="text-gray-400 hover:text-gray-700 transition" width="24" height="24"
                         viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -183,21 +183,14 @@
                 @forelse ($religion->allDenominations->take(10) as $denomination)
                     <p>{{ $denomination->name }}</p>
                 @empty
-                    <div class="w-full h-full flex items-center justify-center">
+                    <div class="w-full h-full flex items-center justify-center text-black dark:text-white">
                         <p class="text-md">No items available</p>
                     </div>
                 @endforelse
             </div>
         </div>
-        {{-- <div class="w-full h-fit rounded-2xl shadow-xl bg-white flex flex-col p-8">
-            <livewire:list-items :classType="\App\Models\Denomination::class" :items="$religion->allDenominations->take(10)" modalName="denominations.create-denomination"
-                aplineString="showDenominationModal = !showDenominationModal" :modalParams="['religionId' => $religion->getKey()]" :params="[
-                    'parentClass' => $religion::class,
-                    'relation' => 'allDenominations',
-                    'id' => $religion->getKey(),
-                ]" />
-        </div> --}}
-        <div class="w-full h-fit rounded-2xl shadow-xl bg-white flex flex-col p-8 mb-12">
+
+        <div class="w-full h-fit rounded-2xl shadow-xl bg-white dark:bg-gray-700 flex flex-col p-8 mb-12">
             <livewire:list-items :classType="\App\Models\Post::class" :items="$religion->posts->take(10)" />
         </div>
     </div>

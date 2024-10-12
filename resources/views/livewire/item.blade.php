@@ -5,8 +5,8 @@
     <!-- Title & Description -->
     <div class="w-full xl:w-3/5 flex flex-col space-y-4">
         <div class="flex flex-col space-y-2">
-            <h3 class="text-2xl font-bold text-slate-700">{{ $item->title }}</h3>
-            <p class="text-sm text-gray-500">{{ $item->description }}</p>
+            <h3 class="text-2xl font-bold text-slate-700 dark:text-slate-300">{{ $item->title }}</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-300">{{ $item->description }}</p>
         </div>
         @if ($hasControls)
             <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-x-4 gap-y-8 w-full max-w-full">
