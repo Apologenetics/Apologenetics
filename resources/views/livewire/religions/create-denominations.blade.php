@@ -18,8 +18,8 @@
                 class="rounded-xl dark:bg-gray-600 dark:text-white">
                 <option value="" selected>Not Applicable</option>
                 @foreach ($religion->denominations as $denomination)
-                    <option value="{{ $denomination?->getKey() ?? $denomination['id'] }}">
-                        {{ $denomination?->name ?? $denomination['name'] }}
+                    <option value="{{ $denomination?->getAttribute('id') ?? $denomination['id'] }}">
+                        {{ $denomination?->getAttribute('name') ?? $denomination['name'] }}
                     </option>
                 @endforeach
             </select>
