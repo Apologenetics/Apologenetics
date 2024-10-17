@@ -1,4 +1,4 @@
-<div class="flex flex-col md:flex-row gap-4 w-full h-full pt-8 px-6 overflow-y-auto" x-data="{
+<div class="flex flex-col md:flex-row gap-4 w-full h-full pt-8 px-8 overflow-y-auto" x-data="{
     showDoctrineModal: @entangle('showDoctrineModal'),
     showNuggetModal: @entangle('showNuggetModal'),
     showDenominationModal: @entangle('showDenominationModal')
@@ -7,7 +7,7 @@
     <div class="flex flex-col gap-4 md:w-3/4 md:h-fit xl:h-full">
         <!-- Avatar, Name, and Description -->
         <div
-            class="w-full h-fit rounded-2xl shadow-xl bg-white dark:bg-gray-700 flex flex-col md:flex-row justify-center md:justify-none items-center p-8 gap-12">
+            class="w-full h-fit rounded-2xl shadow-xl bg-white dark:bg-transparent dark:ring-1 dark:ring-gray-600 flex flex-col md:flex-row justify-center md:justify-none items-center p-8 gap-12">
             <div class="h-full flex justify-center items-center">
                 <div class="w-32 h-32 rounded-full bg-gray-600 dark:bg-gray-300"></div>
             </div>
@@ -33,13 +33,14 @@
             </div>
         </div>
         <!-- Doctrines -->
-        <div class="w-full h-fit rounded-2xl shadow-xl bg-white dark:bg-gray-700 flex flex-col space-y-2 p-8">
+        <div
+            class="w-full h-fit rounded-2xl shadow-xl bg-white dark:bg-transparent dark:ring-1 dark:ring-gray-600 flex flex-col space-y-2 p-8">
             <div class="w-full flex flex-row justify-between">
                 <a class="text-3xl font-bold text-sky-900 dark:text-sky-600"
                     href={{ route('doctrines.religions', ['religion' => $religion->getKey()]) }}>Doctrines</a>
                 <button @click="showDoctrineModal = !showDoctrineModal">
-                    <svg class="text-gray-400 hover:text-gray-700 transition" width="24" height="24"
-                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="text-gray-400 hover:text-gray-700 dark:hover:text-gray-500 transition" width="24"
+                        height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z"
                             fill="currentColor" />
@@ -55,12 +56,13 @@
             <livewire:doctrines.show-doctrines :entity="$religion" :showTitle="false" />
         </div>
         <!-- Nuggets -->
-        <div class="w-full h-fit rounded-2xl shadow-xl bg-white dark:bg-gray-700 flex flex-col space-y-2 p-8">
+        <div
+            class="w-full h-fit rounded-2xl shadow-xl bg-white dark:bg-transparent dark:ring-1 dark:ring-gray-600 flex flex-col space-y-2 p-8">
             <div class="w-full flex flex-row justify-between">
                 <h2 class="text-3xl font-bold text-sky-900 dark:text-sky-600">Nuggets</h2>
                 <button @click="showNuggetModal = !showNuggetModal">
-                    <svg class="text-gray-400 hover:text-gray-700 transition" width="24" height="24"
-                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="text-gray-400 hover:text-gray-700 dark:hover:text-gray-500 transition" width="24"
+                        height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z"
                             fill="currentColor" />
@@ -86,7 +88,8 @@
     </div>
     <!-- Column 2 -->
     <div class="flex flex-col gap-4 md:w-1/4 h-fit xl:h-full">
-        <div class="w-full h-fit rounded-2xl shadow-xl bg-white dark:bg-gray-700 flex flex-row p-8 justify-between">
+        <div
+            class="w-full h-fit rounded-2xl shadow-xl bg-white dark:bg-transparent dark:ring-1 dark:ring-gray-600 flex flex-row p-8 justify-between">
             <!-- Column 1 -->
             <div class="flex flex-col justify-between space-y-8">
                 <!-- Row 1 -->
@@ -161,12 +164,13 @@
             </div>
         </div>
         <!-- Denominations -->
-        <div class="w-full h-fit rounded-2xl shadow-xl bg-white dark:bg-gray-700 flex flex-col space-y-2 p-8">
+        <div
+            class="w-full h-fit rounded-2xl shadow-xl bg-white dark:bg-transparent dark:ring-1 dark:ring-gray-600 flex flex-col space-y-2 p-8">
             <div class="w-full flex flex-row justify-between">
                 <h2 class="text-3xl font-bold text-sky-900 dark:text-sky-600">Denominations</h2>
                 <button @click="showDenominationModal = !showDenominationModal">
-                    <svg class="text-gray-400 hover:text-gray-700 transition" width="24" height="24"
-                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="text-gray-400 hover:text-gray-700 dark:hover:text-gray-500 transition" width="24"
+                        height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z"
                             fill="currentColor" />
@@ -181,7 +185,8 @@
             </div>
             <div class="w-full flex flex-col overflow-x-auto h-auto divide-y divide-sky-400">
                 @forelse ($religion->allDenominations->take(10) as $denomination)
-                    <p>{{ $denomination->name }}</p>
+                    <a class="dark:text-white text-black hover:underline"
+                        href="{{ route('denominations.show', ['denomination' => $denomination->getKey()]) }}">{{ $denomination->name }}</a>
                 @empty
                     <div class="w-full h-full flex items-center justify-center text-black dark:text-white">
                         <p class="text-md">No items available</p>
@@ -190,7 +195,8 @@
             </div>
         </div>
 
-        <div class="w-full h-fit rounded-2xl shadow-xl bg-white dark:bg-gray-700 flex flex-col p-8 mb-12">
+        <div
+            class="w-full h-fit rounded-2xl shadow-xl bg-white dark:bg-transparent dark:ring-1 dark:ring-gray-600 flex flex-col p-8 mb-12">
             <livewire:list-items :classType="\App\Models\Post::class" :items="$religion->posts->take(10)" />
         </div>
     </div>

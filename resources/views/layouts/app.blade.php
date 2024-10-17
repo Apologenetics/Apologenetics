@@ -103,7 +103,7 @@
                 'h-full m-0 hidden lg:flex flex-col w-fit lg:w-16 bg-white dark:bg-gray-700'">
 
             <div popover id="sidebar-expanded"
-                class="m-0 p-4 h-full w-fit flex flex-col overflow-y-auto items-center justify-between border-r border-gray-200 dark:border-gray-600 isolate z-10 dark:bg-gray-800">
+                class="m-0 p-4 h-full w-fit flex flex-col overflow-y-auto items-center justify-between border-r border-gray-200 dark:border-gray-700 isolate z-10 dark:bg-gray-900">
                 <!-- Main Sidebar Content -->
                 <div class="flex flex-col w-full items-center" x-cloak>
                     <div class="flex flex-col-reverse md:flex-col w-full items-center">
@@ -249,10 +249,10 @@
                 <!-- Profile -->
                 {{-- TODO: Add settings and logout icon in expanded view. Maybe with labels? --}}
                 <div class="items-center flex flex-row justify-between w-full">
-                    <div class="flex flex-row space-x-4 items-center">
+                    <div class="flex flex-row items-center">
                         <img src="{{ auth()->user()->profile_photo_url }}" alt="{{ auth()->user()->username }}"
-                            class="w-8 h-8 rounded-full hover:cursor-pointer" x-on:click="openMenu" />
-                        <div class="icon-name flex flex-col space-y-2 w-full" style="display: none;">
+                            class="size-8 dark:text-white rounded-full hover:cursor-pointer" x-on:click="openMenu" />
+                        <div class="icon-name flex flex-col space-y-2 ml-4 w-full" x-show="open">
                             <span class="text-md font-semibold text-center">{{ auth()->user()->username }}</span>
                             <!-- Icons -->
                             <div class="w-full justify-center items-center flex flex-row space-x-4">
