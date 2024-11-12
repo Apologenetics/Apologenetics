@@ -3,16 +3,18 @@
 namespace App\Models;
 
 use App\Traits\HasComments;
+use App\Traits\HasVotableRelation;
 use App\Contracts\Comment\Commentable;
+use App\Contracts\Vote\Votable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
-class Comment extends Model implements Commentable
+class Comment extends Model implements Commentable, Votable
 {
-    use HasComments;
+    use HasComments, HasVotableRelation;
 
     protected $guarded = false;
 
@@ -68,7 +70,7 @@ class Comment extends Model implements Commentable
     public function repliesWithEssentials(): HasMany
     {
         return $this->hasMany(self::class, 'parent_id', 'id')
-                ->with(['repliesWithEssentials', 'votes', 'createdBy']);
+            ->with(['repliesWithEssentials', 'votes', 'createdBy']);
     }
 
     public function votes(): MorphMany

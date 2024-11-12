@@ -14,7 +14,7 @@ trait HasVotableRelation
 
     public function modelType(): string
     {
-        return get_class($this);
+        return $this::class;
     }
 
     public function getId(): string

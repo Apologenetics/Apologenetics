@@ -6,7 +6,7 @@
         @if ($entity->doctrines->isNotEmpty())
             <div class="w-full flex flex-col overflow-x-auto h-auto divide-y divide-sky-400">
                 @foreach ($entity->doctrines as $doctrine)
-                    <livewire:item :item="$doctrine->withoutRelations()" :user="$doctrine->createdBy" />
+                    <livewire:item :item="$doctrine->withoutRelations()" :user="$doctrine->createdBy" :key="$doctrine->getKey()" />
                 @endforeach
             </div>
         @endif
@@ -16,7 +16,7 @@
                     <p class="text-2xl font-semibold">{{ $denomination->name }}</p>
                     <div class="w-full flex flex-col overflow-x-auto h-auto divide-y divide-sky-400">
                         @foreach ($denomination->doctrines as $doctrine)
-                            <livewire:item :item="$doctrine->withoutRelations()" :user="$doctrine->createdBy" />
+                            <livewire:item :item="$doctrine->withoutRelations()" :user="$doctrine->createdBy" :key="$doctrine->getKey()" />
                         @endforeach
                     </div>
                 @endif

@@ -31,14 +31,14 @@ class ItemComments extends Component
         if (! isset($comments) || ($comments instanceof Collection && $comments->isEmpty())) {
             $comments = is_array($commentable) ?
                 Comment::query()
-                    ->where('commentable_type', $this->mapToClassName($commentable['model_type']))
-                    ->where('commentable_id', $commentable['model_id'])
-                    ->get() :
+                ->where('commentable_type', $this->mapToClassName($commentable['model_type']))
+                ->where('commentable_id', $commentable['model_id'])
+                ->get() :
                 $commentable->comments()->get();
 
-            $this->modelId ??= $commentable['model_id'];
+            $this->modelId ??= (int) $commentable['model_id'] ?? $commentable->getId();
 
-            $this->type ??= $commentable['model_type'];
+            $this->type ??= $commentable['model_type'] ?? $commentable->modelType();
         }
 
         // Note: Comments can't be commentable types.

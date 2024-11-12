@@ -3,12 +3,13 @@
 namespace App\Livewire\Doctrines;
 
 use Livewire\Component;
+use App\Models\Doctrine;
 use App\Models\Religion;
-use App\Models\Denomination;
-use App\Exceptions\Doctrine\InvalidDoctrineSourceException;
 use App\Traits\MapsModels;
-use Illuminate\Support\Pluralizer;
 use Livewire\Attributes\On;
+use App\Models\Denomination;
+use Illuminate\Support\Pluralizer;
+use App\Exceptions\Doctrine\InvalidDoctrineSourceException;
 
 class ShowDoctrines extends Component
 {
@@ -75,6 +76,19 @@ class ShowDoctrines extends Component
         $this->entity->load('allDenominations.doctrines');
 
         $this->checkChildren();
+    }
+
+    #[On('doctrine-created')]
+    public function onUpdatedDoctrine($doctrine)
+    {
+        $doctrine = new Doctrine($doctrine);
+        $doctrine->load([
+            'createdBy',
+            'createdBy.faith.religion',
+            'createdBy.faith.denomination'
+        ]);
+
+        $this->entity->doctrines->push($doctrine);
     }
 
     public function render()

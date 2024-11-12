@@ -42,7 +42,7 @@ class ItemVotes extends Component
 
             if ($votable instanceof Votable) {
                 $this->type = $votable->modelType();
-                $this->modelId = $votable->getId();
+                $this->modelId = (int) $votable->getId();
             } else {
                 // TODO: Throw error if values are not found?
                 $this->type = $votable['model_type'];
