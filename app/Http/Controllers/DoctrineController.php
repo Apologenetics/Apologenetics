@@ -7,26 +7,15 @@ use App\Models\Religion;
 use Illuminate\View\View;
 use App\Models\Denomination;
 use Illuminate\Http\Request;
-use Illuminate\Validation\ValidationException;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DoctrineController extends Controller
 {
     public function create(Request $request): View
     {
-        $validator = validator(
-            $request->all(),
-            [
-                'denomination_id' => ['integer', 'nullable'],
-                'religion_id' => ['integer', 'nullable'],
-            ]
-        );
-
-        try {
-            $values = $validator->validate();
-        } catch (ValidationException) {
-            throw new NotFoundHttpException();
-        }
+        $values = $request->validate([
+            'denomination_id' => ['integer', 'nullable'],
+            'religion_id' => ['integer', 'nullable'],
+        ]);
 
         return view('doctrines.create', [
             'religion_id' => $values['religion_id'] ?? null,
