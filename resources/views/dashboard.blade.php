@@ -1,74 +1,18 @@
-<x-app-layout>
-    <div class="flex flex-col md:flex-row gap-8 h-full px-6 pt-0 md:pt-8">
-        <!-- Col 1 -->
-        <div class="w-full md:w-1/5 hidden md:flex flex-col space-y-4 h-full px-4 pb-8">
-            <!-- Following -->
-            <div class="flex flex-col space-y-4 h-full bg-white dark:bg-gray-700 rounded-2xl p-6 justify-between">
-                <!-- Header -->
-                <div class="flex flex-col">
-                    <p class="font-bold text-2xl text-sky-900 dark:text-sky-700">Following</p>
-                </div>
-                <div class="flex flex-col space-y-4 w-full h-full">
-                    <!-- Items -->
-                    @forelse ($following as $item)
-                        <div class="flex flex-row space-x-2 justify-between items-center w-full">
-                            <a class="text-md font-semibold text-slate-500"
-                                href="{{ route($item->getShowRouteAttributes()) }}">
-                                <span>{{ $item->title }}</span>
-                            </a>
-                        </div>
-                    @empty
-                        <div class="flex justify-center items-center w-full h-full">
-                            <p class="text-lg font-semibold text-slate-500">
-                                <span>Find some items to follow</span>
-                            </p>
-                        </div>
-                    @endforelse
-                </div>
-                <a href="#" class="text-sky-500 text-md text-center hover:underline">See More</a>
+<x-layouts.app :title="__('Dashboard')">
+    <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
+        <div class="grid auto-rows-min gap-4 md:grid-cols-3">
+            <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
+                <x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
             </div>
-            <hr class="border border-sky-200">
-            <!-- Activity -->
-            <div class="flex flex-col space-y-4 h-full bg-white dark:bg-gray-700 rounded-2xl p-6 justify-between">
-                <!-- Header -->
-                <div class="flex flex-col">
-                    <p class="font-bold text-2xl text-sky-900 dark:text-sky-700">Activity</p>
-                </div>
-                <div class="flex flex-col space-y-4">
-                    <!-- Items -->
-                </div>
-                <a href="#" class="text-sky-500 text-md text-center hover:underline">See More</a>
+            <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
+                <x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
+            </div>
+            <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
+                <x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
             </div>
         </div>
-        <!-- Col 2 -->
-        <div class="w-full md:w-3/5 flex flex-col space-y-4 h-full overflow-y-auto px-4">
-            <livewire:feed />
-        </div>
-        <!-- Col 3 -->
-        <div class="w-full md:w-1/5 hidden md:flex flex-col space-y-4 h-full px-4 pb-8">
-            <!-- Following -->
-            <div class="flex flex-col space-y-4 h-full bg-white dark:bg-gray-700 rounded-2xl p-6 justify-between">
-                <!-- Header -->
-                <div class="flex flex-col">
-                    <p class="font-bold text-2xl text-sky-900 dark:text-sky-700">Following</p>
-                </div>
-                <div class="flex flex-col space-y-4">
-                    <!-- Items -->
-                </div>
-                <a href="#" class="text-sky-500 text-md text-center hover:underline">See More</a>
-            </div>
-            <hr class="border border-sky-200">
-            <!-- Activity -->
-            <div class="flex flex-col space-y-4 h-full bg-white dark:bg-gray-700 rounded-2xl p-6 justify-between">
-                <!-- Header -->
-                <div class="flex flex-col">
-                    <p class="font-bold text-2xl text-sky-900 dark:text-sky-700">Activity</p>
-                </div>
-                <div class="flex flex-col space-y-4">
-                    <!-- Items -->
-                </div>
-                <a href="#" class="text-sky-500 text-md text-center hover:underline">See More</a>
-            </div>
+        <div class="relative h-full flex-1 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
+            <x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
         </div>
     </div>
-</x-app-layout>
+</x-layouts.app>

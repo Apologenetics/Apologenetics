@@ -58,7 +58,7 @@ class EditFaith extends \Livewire\Component
         ]);
     }
 
-    public function updateFaith(\App\Livewire\Faith\UpdateFaith $updateFaith)
+    public function updateFaith(UpdateFaith $updateFaith)
     {
         $updateFaith(
             $this->state,
