@@ -19,6 +19,13 @@ class DatabaseSeeder extends Seeder
     {
         $religions = Religion::factory(7)->create();
 
+        User::factory()->create([
+            'first_name' => 'Dominic',
+            'last_name' => 'sears',
+            'username' => 'dominicsears',
+            'email' => 'dominic@test.com'
+        ]);
+
         $users = User::factory(100)->create();
 
         foreach ($users as $user) {

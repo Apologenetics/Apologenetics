@@ -37,11 +37,6 @@ Route::middleware(['auth'])->group(function () {
         ->name('two-factor.show');
 });
 
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/search', Controllers\SearchController::class)->name('search.results');
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {

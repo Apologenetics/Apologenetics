@@ -22,7 +22,6 @@ class User extends Authenticatable
 {
     use HasApiTokens;
     use HasFactory;
-    use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
 
@@ -63,6 +62,11 @@ class User extends Authenticatable
             'created_at' => 'immutable_datetime',
             'updated_at' => 'datetime'
         ];
+    }
+
+    public function initials(): string
+    {
+        return strtoupper(substr($this->first_name, 0, 1) . substr($this->last_name, 0, 1));
     }
 
     // Attributes

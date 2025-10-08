@@ -11,14 +11,4 @@ trait HasVotableRelation
     {
         return call_user_func([$this, 'morphMany'], Vote::class, 'votable');
     }
-
-    public function modelType(): string
-    {
-        return $this::class;
-    }
-
-    public function getId(): string
-    {
-        return (string) call_user_func([$this, 'getKey']);
-    }
 }
